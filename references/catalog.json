@@ -1,0 +1,620 @@
+{
+  "schema_version": 1,
+  "updated": "2026-10-10",
+  "scope": "中子输运特征线法（MOC）首轮定向调研；15篇论文/章节及5项官方辅助资源。阅读理由是教学安排，摘要级归纳不等于正文精读。下载与公开分发状态见 papers/manifest.json。",
+  "papers": [
+    {
+      "id": "P01",
+      "bibtex_key": "eklund2015",
+      "type": "article",
+      "title": "Method of characteristics – A review with applications to science and nuclear engineering computation",
+      "authors": [
+        "Eklund, Matthew",
+        "Alamaniotis, Miltiadis",
+        "Hernandez, Hermilo",
+        "Jevremovic, Tatjana"
+      ],
+      "year": 2015,
+      "venue": "Progress in Nuclear Energy",
+      "volume": "85",
+      "issue": null,
+      "pages_or_article": "548-567",
+      "doi": "10.1016/j.pnucene.2015.05.002",
+      "topic": [
+        "入门综述",
+        "特征线变换"
+      ],
+      "priority": "核心必读",
+      "source_urls": [
+        "https://doi.org/10.1016/j.pnucene.2015.05.002",
+        "https://www.sciencedirect.com/science/article/pii/S0149197015001080",
+        "https://inl.elsevierpure.com/en/publications/method-of-characteristics-a-review-with-applications-to-science-a/"
+      ],
+      "why_read": "先建立沿特征线把偏微分方程变成常微分方程的数学直觉。本文覆盖多个领域，首遍只读基础推导与中子输运案例，避免把热工应用中的特征线与中子直线轨迹混淆。",
+      "questions": [
+        "特征线上的方向导数为何能改写成沿程导数？",
+        "数学上的特征线法与反应堆物理中的轨迹扫描有什么联系？"
+      ],
+      "reading_basis": "abstract",
+      "verification_notes": "2026-10-09核对Crossref书目与INL作者机构摘要；正式卷期为2015年。全文案例尚未逐式精读。"
+    },
+    {
+      "id": "P02",
+      "bibtex_key": "boyd2014",
+      "type": "article",
+      "title": "The OpenMOC method of characteristics neutral particle transport code",
+      "authors": [
+        "Boyd, William",
+        "Shaner, Samuel",
+        "Li, Lulu",
+        "Forget, Benoit",
+        "Smith, Kord"
+      ],
+      "year": 2014,
+      "venue": "Annals of Nuclear Energy",
+      "volume": "68",
+      "issue": null,
+      "pages_or_article": "43-52",
+      "doi": "10.1016/j.anucene.2013.12.012",
+      "topic": [
+        "二维MOC",
+        "程序实现",
+        "基准验证"
+      ],
+      "priority": "核心必读",
+      "source_urls": [
+        "https://doi.org/10.1016/j.anucene.2013.12.012",
+        "https://www.sciencedirect.com/science/article/pii/S0306454913006634",
+        "https://mit-crpg.github.io/OpenMOC/methods/index.html",
+        "https://github.com/mit-crpg/OpenMOC",
+        "https://dspace.mit.edu/entities/publication/c6e8edd6-071b-43ef-adc8-ed39dcb55ae7",
+        "https://dspace.mit.edu/server/api/core/bitstreams/c3c8d02f-80f0-4d84-9b8c-dc388917a03b/content"
+      ],
+      "why_read": "把数学公式连接到实际计算程序，是整个阅读计划的主线。重点认识几何、轨迹生成、输运扫描、源更新和验证之间的关系，再结合OpenMOC官方理论文档补充细节。",
+      "questions": [
+        "几何与材料输入怎样转变成分段轨迹和区域通量？",
+        "C5G7等基准怎样检查计算结果，哪些离散化参数影响误差？"
+      ],
+      "reading_basis": "abstract + official_documentation + repository_pdf_frontmatter_and_abstract",
+      "verification_notes": "2026-10-09核对Crossref和出版社摘要/章节预览；归纳未采用硬件加速倍数作为一般结论。DOI含2013，正式出版年为2014。 2026-10-10复核MIT作者稿封面、摘要与许可；归档全文不等于逐式精读。"
+    },
+    {
+      "id": "P03",
+      "bibtex_key": "liu2021",
+      "type": "incollection",
+      "title": "The method of characteristics",
+      "authors": [
+        "Liu, Zhouyu"
+      ],
+      "year": 2021,
+      "venue": "Deterministic Numerical Methods for Unstructured-Mesh Neutron Transport Calculation",
+      "volume": null,
+      "issue": null,
+      "pages_or_article": "73-108",
+      "doi": "10.1016/B978-0-12-818221-5.00010-6",
+      "topic": [
+        "教材章节",
+        "系统理论"
+      ],
+      "priority": "基础阶段可选补充",
+      "source_urls": [
+        "https://doi.org/10.1016/B978-0-12-818221-5.00010-6",
+        "https://www.sciencedirect.com/science/article/pii/B9780128182215000106"
+      ],
+      "why_read": "适合作为教材型补充，与OpenMOC文档和P01/P02交叉对照符号、假设与推导。摘要列明方程推导、关键近似、二维/三维求解器和2D/1D异质计算路线；未获得可读正文，因此不把它列为最短路线的必备条件。",
+      "questions": [
+        "哪些关键近似影响MOC精度，教材如何组织二维和三维求解流程？",
+        "2D/1D fusion在组件和全堆异质计算中处于什么位置？"
+      ],
+      "reading_basis": "abstract",
+      "verification_notes": "2026-10-09Crossref确认书目信息；出版社摘要在前轮原始网页检索中核对，本次直接访问返回403。全文尚未读取，不能将摘要级归纳写成逐章精读。"
+    },
+    {
+      "id": "P04",
+      "bibtex_key": "ferrer2016",
+      "type": "article",
+      "title": "A Linear Source Approximation Scheme for the Method of Characteristics",
+      "authors": [
+        "Ferrer, Rodolfo M.",
+        "Rhodes, III, Joel D."
+      ],
+      "year": 2016,
+      "venue": "Nuclear Science and Engineering",
+      "volume": "182",
+      "issue": "2",
+      "pages_or_article": "151-165",
+      "doi": "10.13182/NSE15-6",
+      "topic": [
+        "线性源",
+        "空间精度",
+        "CMFD兼容性"
+      ],
+      "priority": "核心必读",
+      "source_urls": [
+        "https://doi.org/10.13182/NSE15-6",
+        "https://www.tandfonline.com/doi/abs/10.13182/NSE15-6"
+      ],
+      "why_read": "回答平源区为什么必须细分，以及能否用更好的区内源表达换取更少的网格。本文通过轨迹空间矩构造线性源系数，适合学习精度、内存与计算代价之间的权衡。",
+      "questions": [
+        "线性源除了平均源还需要哪些空间矩或系数？",
+        "为何需要在相同目标精度下比较平源与线性源的耗时和内存？"
+      ],
+      "reading_basis": "abstract",
+      "verification_notes": "2026-10-09Crossref和出版社摘要核验。引用年采用卷182期2的2016年；官网迁移后的Published online显示2017-03-22，DOI含15，三者不能混用。Rhodes作者后缀III已保留。"
+    },
+    {
+      "id": "P05",
+      "bibtex_key": "liu2011",
+      "type": "article",
+      "title": "A new three-dimensional method of characteristics for the neutron transport calculation",
+      "authors": [
+        "Liu, Zhouyu",
+        "Wu, Hongchun",
+        "Cao, Liangzhi",
+        "Chen, Qichang",
+        "Li, Yunzhao"
+      ],
+      "year": 2011,
+      "venue": "Annals of Nuclear Energy",
+      "volume": "38",
+      "issue": "2-3",
+      "pages_or_article": "447-454",
+      "doi": "10.1016/j.anucene.2010.09.021",
+      "topic": [
+        "三维MOC",
+        "模块化射线追踪",
+        "CMFD"
+      ],
+      "priority": "核心必读",
+      "source_urls": [
+        "https://doi.org/10.1016/j.anucene.2010.09.021",
+        "https://www.sciencedirect.com/science/article/pii/S0306454910003427",
+        "https://necp.xjtu.edu.cn/__local/7/7E/F3/9B50B82133802D453C4B299AEF2_39452112_91284.pdf"
+      ],
+      "why_read": "进入三维问题前，先理解轨迹数据量增长带来的内存瓶颈。模块化追踪复用典型几何单元，CMFD减少迭代，两者分别作用于不同计算环节。",
+      "questions": [
+        "典型单元中的轨迹为什么需要满足接口连接要求？",
+        "模块化追踪与CMFD各自节省了哪种成本？"
+      ],
+      "reading_basis": "abstract + official_fulltext_excerpt",
+      "verification_notes": "2026-10-09Crossref、出版社摘要与西安交大公开PDF片段核验；全文逐式推导和所有算例未完整复核。DOI含2010，正式出版年2011。"
+    },
+    {
+      "id": "P06",
+      "bibtex_key": "collins2016",
+      "type": "article",
+      "title": "Stability and accuracy of 3D neutron transport simulations using the 2D/1D method in MPACT",
+      "authors": [
+        "Collins, Benjamin",
+        "Stimpson, Shane",
+        "Kelley, Blake W.",
+        "Young, Mitchell T.H.",
+        "Kochunas, Brendan",
+        "Graham, Aaron",
+        "Larsen, Edward W.",
+        "Downar, Thomas",
+        "Godfrey, Andrew"
+      ],
+      "year": 2016,
+      "venue": "Journal of Computational Physics",
+      "volume": "326",
+      "issue": null,
+      "pages_or_article": "612-628",
+      "doi": "10.1016/j.jcp.2016.08.022",
+      "topic": [
+        "2D/1D",
+        "稳定性",
+        "全堆计算"
+      ],
+      "priority": "核心必读",
+      "source_urls": [
+        "https://doi.org/10.1016/j.jcp.2016.08.022",
+        "https://www.sciencedirect.com/science/article/pii/S0021999116303710",
+        "https://impact.ornl.gov/en/publications/stability-and-accuracy-of-3d-neutron-transport-simulations-using-/"
+      ],
+      "why_read": "与P05组成对照：直接三维MOC之外，可以用径向二维MOC和轴向低阶输运组成三维求解。重点理解轴向近似、横向泄漏耦合和稳定性，避免仅用运行速度评价方法。",
+      "questions": [
+        "2D/1D方法对三维方程作了哪些近似，径向与轴向如何交换信息？",
+        "轴向网格细化时应如何同时检查精度与迭代稳定性？"
+      ],
+      "reading_basis": "abstract",
+      "verification_notes": "2026-10-09Crossref与ORNL机构摘要核验；保留全部9位作者。摘要提到实际堆芯、连续能MC和测量比较，未据此宣称所有反应堆均适用。"
+    },
+    {
+      "id": "P07",
+      "bibtex_key": "gunow2019",
+      "type": "article",
+      "title": "Full core 3D simulation of the BEAVRS benchmark with OpenMOC",
+      "authors": [
+        "Gunow, Geoffrey",
+        "Forget, Benoit",
+        "Smith, Kord"
+      ],
+      "year": 2019,
+      "venue": "Annals of Nuclear Energy",
+      "volume": "134",
+      "issue": null,
+      "pages_or_article": "299-304",
+      "doi": "10.1016/j.anucene.2019.05.050",
+      "topic": [
+        "直接三维",
+        "全堆",
+        "BEAVRS",
+        "即时追踪"
+      ],
+      "priority": "三维应用路线必读",
+      "source_urls": [
+        "https://doi.org/10.1016/j.anucene.2019.05.050",
+        "https://www.sciencedirect.com/science/article/pii/S0306454919303032",
+        "https://www.osti.gov/biblio/1801260",
+        "https://www.osti.gov/servlets/purl/1801260"
+      ],
+      "why_read": "展示基础算法走向真实尺度三维全堆问题时需要哪些工程措施。阅读时把几何、空间与角度分辨率、即时追踪、区域分解和验证结果放在同一张表里。",
+      "questions": [
+        "空间和角度分辨率如何证明足够，而不是只看keff接近参考值？",
+        "即时轴向追踪、区域分解和CMFD如何协同控制资源？"
+      ],
+      "reading_basis": "abstract + official_fulltext_excerpt",
+      "verification_notes": "2026-10-09Crossref与OSTI作者稿摘要/方法片段核验；OSTI稿件须与出版社正式版区分，下载版本和分发状态见独立manifest。"
+    },
+    {
+      "id": "P08",
+      "bibtex_key": "gaston2021",
+      "type": "article",
+      "title": "Method of Characteristics for 3D, Full-Core Neutron Transport on Unstructured Mesh",
+      "authors": [
+        "Gaston, Derek R.",
+        "Forget, Benoit",
+        "Smith, Kord S.",
+        "Harbour, Logan H.",
+        "Ridley, Gavin K.",
+        "Giudicelli, Guillaume G."
+      ],
+      "year": 2021,
+      "venue": "Nuclear Technology",
+      "volume": "207",
+      "issue": "7",
+      "pages_or_article": "931-953",
+      "doi": "10.1080/00295450.2021.1871995",
+      "topic": [
+        "非结构网格",
+        "三维MOC",
+        "全堆"
+      ],
+      "priority": "复杂几何路线选读",
+      "source_urls": [
+        "https://doi.org/10.1080/00295450.2021.1871995",
+        "https://www.tandfonline.com/doi/abs/10.1080/00295450.2021.1871995"
+      ],
+      "why_read": "了解规则重复几何之外的三维MOC实现。重点比较非结构网格下的几何适应性、射线切段、数据布局和并行代价，与P05的模块复用路线形成对照。",
+      "questions": [
+        "非结构网格解决了哪些几何描述问题，又增加了哪些追踪与通信成本？",
+        "采用什么空间近似和算例才能支持全堆适用性？"
+      ],
+      "reading_basis": "abstract + official_fulltext_excerpt",
+      "verification_notes": "2026-10-09Crossref与出版社页面片段核验。出版社标为开放获取不自动等于允许仓库再分发，具体许可由下载manifest记录。"
+    },
+    {
+      "id": "P09",
+      "bibtex_key": "tramm2016",
+      "type": "article",
+      "title": "A task-based parallelism and vectorized approach to 3D Method of Characteristics (MOC) reactor simulation for high performance computing architectures",
+      "authors": [
+        "Tramm, John R.",
+        "Gunow, Geoffrey",
+        "He, Tim",
+        "Smith, Kord S.",
+        "Forget, Benoit",
+        "Siegel, Andrew R."
+      ],
+      "year": 2016,
+      "venue": "Computer Physics Communications",
+      "volume": "202",
+      "issue": null,
+      "pages_or_article": "141-150",
+      "doi": "10.1016/j.cpc.2016.01.007",
+      "topic": [
+        "并行任务",
+        "向量化",
+        "高性能计算"
+      ],
+      "priority": "性能实现路线必读",
+      "source_urls": [
+        "https://doi.org/10.1016/j.cpc.2016.01.007",
+        "https://www.sciencedirect.com/science/article/pii/S0010465516000266",
+        "https://dspace.mit.edu/entities/publication/9c6ad519-f282-4978-b8fd-815d5c0391c5",
+        "https://dspace.mit.edu/server/api/core/bitstreams/e24aed13-8a8e-432e-848f-670d42136e2c/content"
+      ],
+      "why_read": "学习如何在保持输运算法框架的同时安排任务和数据，以降低单次扫描成本。适合在能画出MOC扫描流程后阅读，关注并行粒度、任务依赖和负载均衡。",
+      "questions": [
+        "哪些循环可以并行或向量化，哪些边界依赖需要保留？",
+        "强扩展与弱扩展分别回答什么问题，性能比较如何统一基线？"
+      ],
+      "reading_basis": "abstract + repository_pdf_frontmatter_and_abstract",
+      "verification_notes": "2026-10-09Crossref书目核验；内容定位沿用前轮检索的摘要级归纳，不据此给出具体硬件扩展效率或加速倍数。 2026-10-10复核MIT作者稿封面、摘要与许可；归档全文不等于逐式精读。"
+    },
+    {
+      "id": "P10",
+      "bibtex_key": "song2020",
+      "type": "article",
+      "title": "GPU Based Two-Level CMFD Accelerating Two-Dimensional MOC Neutron Transport Calculation",
+      "authors": [
+        "Song, Peitao",
+        "Zhang, Qian",
+        "Liang, Liang",
+        "Zhang, Zhijian",
+        "Zhao, Qiang"
+      ],
+      "year": 2020,
+      "venue": "Frontiers in Energy Research",
+      "volume": "8",
+      "issue": null,
+      "pages_or_article": "124",
+      "doi": "10.3389/fenrg.2020.00124",
+      "topic": [
+        "GPU",
+        "两级CMFD",
+        "线性系统求解"
+      ],
+      "priority": "核心必读",
+      "source_urls": [
+        "https://doi.org/10.3389/fenrg.2020.00124",
+        "https://www.frontiersin.org/journals/energy-research/articles/10.3389/fenrg.2020.00124/full",
+        "https://www.frontiersin.org/journals/energy-research/articles/10.3389/fenrg.2020.00124/pdf"
+      ],
+      "why_read": "公开全文的加速案例，既讨论MOC也讨论CMFD线性系统，便于看到端到端耗时由哪些部分组成。先掌握CMFD的目的，再比较Jacobi、SOR和预条件GMRES的收敛与硬件效率。",
+      "questions": [
+        "减少迭代次数和加快每次迭代为什么是两种不同收益？",
+        "线性求解器迭代更少，为什么总耗时未必更短？"
+      ],
+      "reading_basis": "abstract + official_fulltext_excerpt",
+      "verification_notes": "2026-10-09Crossref、Frontiers全文/PDF摘要与结论片段核验；正式文章号124并非页码。未把原文特定CPU/GPU比较的倍数外推为普遍收益。 2026-10-10复核已下载正式PDF与末页许可，归档正文不等于全部算例复算。"
+    },
+    {
+      "id": "P11",
+      "bibtex_key": "song2026",
+      "type": "article",
+      "title": "GPU-accelerated few-group 3D Method of Characteristics for full-core neutron transport in Small Modular Reactors",
+      "authors": [
+        "Song, Qufei",
+        "Wang, Ruixiang",
+        "Shen, Yuyang",
+        "Wu, Yiwei",
+        "Feng, Kuaiyuan",
+        "Guo, Hui",
+        "Xiao, Yao",
+        "Gu, Hanyang"
+      ],
+      "year": 2026,
+      "venue": "Progress in Nuclear Energy",
+      "volume": "192",
+      "issue": null,
+      "pages_or_article": "106109",
+      "doi": "10.1016/j.pnucene.2025.106109",
+      "topic": [
+        "少群三维",
+        "GPU显存",
+        "SMR",
+        "轨迹分批"
+      ],
+      "priority": "近期性能路线选读",
+      "source_urls": [
+        "https://doi.org/10.1016/j.pnucene.2025.106109",
+        "https://www.sciencedirect.com/science/article/pii/S0149197025005074"
+      ],
+      "why_read": "在读完P04、P05、P09、P10后，观察线性源、即时轴向追踪和轨迹分批如何组合应对GPU显存限制。特别留意少群截面的准备成本与误差，避免把少群结果直接推广到细群计算。",
+      "questions": [
+        "计算放得进显存和计算得快分别依靠哪些措施？",
+        "少群截面、硬件和比较基线如何限制所报告的性能结论？"
+      ],
+      "reading_basis": "abstract",
+      "verification_notes": "2026-10-09Crossref核对完整作者、卷192和文章号106109；正式出版为2026年2月，DOI含2025。内容为前轮摘要级归纳，未复核全部公式或速度数据。 2026-10-10复查ScienceDirect正式卷、文章号及摘要页面。"
+    },
+    {
+      "id": "P12",
+      "bibtex_key": "geng2025",
+      "type": "article",
+      "title": "A generalized coarse mesh finite difference acceleration for 3D method of characteristics in hexagonal fast reactor simulations",
+      "authors": [
+        "Geng, Xiaoxu",
+        "Hu, Yun",
+        "Yu, Jiayi",
+        "Wang, Chong",
+        "Shan, Haodong",
+        "Wang, Zhaoshun"
+      ],
+      "year": 2025,
+      "venue": "Nuclear Engineering and Design",
+      "volume": "445",
+      "issue": null,
+      "pages_or_article": "114429",
+      "doi": "10.1016/j.nucengdes.2025.114429",
+      "topic": [
+        "六角形快堆",
+        "广义CMFD",
+        "群粗化"
+      ],
+      "priority": "近期加速路线选读",
+      "source_urls": [
+        "https://doi.org/10.1016/j.nucengdes.2025.114429",
+        "https://www.sciencedirect.com/science/article/pii/S0029549325006065"
+      ],
+      "why_read": "把CMFD加速从常见方形轻水堆几何拓展到六角形快堆语境。关注几何适配和能群粗化如何进入粗网算子，再检查加速前后精细通量与特征值是否保持一致。",
+      "questions": [
+        "六角形几何为什么需要重新设计粗网连通与索引？",
+        "群粗化是在改变最终精细输运模型，还是只改变加速层？"
+      ],
+      "reading_basis": "abstract + publisher_highlights",
+      "verification_notes": "2026-10-09Crossref与出版社Highlights核验；正式卷445、文章号114429、2025年12月。未将单个CEFR算例的迭代下降推广为所有工况。 2026-10-10复查ScienceDirect正式卷、文章号及摘要页面。"
+    },
+    {
+      "id": "P13",
+      "bibtex_key": "tramm2017",
+      "type": "article",
+      "title": "The Random Ray Method for neutral particle transport",
+      "authors": [
+        "Tramm, John R.",
+        "Smith, Kord S.",
+        "Forget, Benoit",
+        "Siegel, Andrew R."
+      ],
+      "year": 2017,
+      "venue": "Journal of Computational Physics",
+      "volume": "342",
+      "issue": null,
+      "pages_or_article": "229-252",
+      "doi": "10.1016/j.jcp.2017.04.038",
+      "topic": [
+        "随机射线",
+        "随机相空间积分",
+        "内存"
+      ],
+      "priority": "扩展路线选读",
+      "source_urls": [
+        "https://doi.org/10.1016/j.jcp.2017.04.038",
+        "https://www.sciencedirect.com/science/article/pii/S0021999117303170",
+        "https://github.com/jtramm/minray",
+        "https://dspace.mit.edu/entities/publication/738579db-c7e0-4074-8bb0-a8fc9e85cdc8",
+        "https://dspace.mit.edu/server/api/core/bitstreams/d5b448d7-e671-4e39-8b4a-bb5ef66fc795/content"
+      ],
+      "why_read": "在熟悉固定轨迹MOC后，理解用随机射线抽样替代确定性的轨迹离散。它仍沿线积分输运方程，是MOC相关扩展，不能简单等同于逐粒子碰撞历史的常规蒙特卡罗。",
+      "questions": [
+        "随机射线究竟随机化了哪个积分环节？",
+        "内存收益伴随哪些统计误差、源迭代和采样参数问题？"
+      ],
+      "reading_basis": "abstract + repository_pdf_frontmatter_and_abstract",
+      "verification_notes": "2026-10-09Crossref、出版社摘要与作者minray仓库引用核验；没有常规MOC与随机射线的统一算例复算，性能优劣仅作为待比较问题。 2026-10-10复核MIT作者稿封面、摘要与许可；归档全文不等于逐式精读。"
+    },
+    {
+      "id": "P14",
+      "bibtex_key": "mylotte2026",
+      "type": "article",
+      "title": "Ray Adaptive Stochastic Transport (RASTr): Importance sampling based variance reduction for characteristics method transport solvers",
+      "authors": [
+        "Mylotte, Owen",
+        "Forget, Benoit"
+      ],
+      "year": 2026,
+      "venue": "Annals of Nuclear Energy",
+      "volume": "230",
+      "issue": null,
+      "pages_or_article": "112152",
+      "doi": "10.1016/j.anucene.2026.112152",
+      "topic": [
+        "随机射线",
+        "重要性抽样",
+        "减方差"
+      ],
+      "priority": "扩展路线进阶选读",
+      "source_urls": [
+        "https://doi.org/10.1016/j.anucene.2026.112152",
+        "https://www.sciencedirect.com/science/article/pii/S030645492600040X",
+        "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5686167"
+      ],
+      "why_read": "在P13之后追问均匀随机射线抽样是否把资源分配得合理。作者通过统计权重支持空间和角度上的偏倚抽样，是从MOC扩展到重要性思想的桥梁。",
+      "questions": [
+        "非均匀射线抽样需要怎样的权重补偿？",
+        "误差下降是否抵消了偏倚抽样的额外计算成本？"
+      ],
+      "reading_basis": "author_preprint_abstract + publisher_abstract",
+      "verification_notes": "2026-10-09Crossref确认正式论文2026年6月、卷230、文章号112152；内容归纳基于作者SSRN预印本摘要（2025-10-31），不能声称已精读2026正式版。SSRN DOI 10.2139/ssrn.5686167为预印本标识，不替换本条正式DOI。 2026-10-10以ScienceDirect正式摘要交叉核对方法定位，仍未精读正式正文。"
+    },
+    {
+      "id": "P15",
+      "bibtex_key": "yang2026",
+      "type": "article",
+      "title": "基于高阶轴向多项式展开的特征面方法",
+      "authors": [
+        "杨睿",
+        "喻宏",
+        "胡赟",
+        "霍兴凯"
+      ],
+      "year": 2026,
+      "venue": "原子能科学技术",
+      "volume": "60",
+      "issue": "1",
+      "pages_or_article": "175-184",
+      "doi": "10.7538/yzk.2025.youxian.0109",
+      "topic": [
+        "特征面方法",
+        "高阶轴向展开",
+        "中文资料"
+      ],
+      "priority": "三维相关扩展选读",
+      "source_urls": [
+        "https://doi.org/10.7538/yzk.2025.youxian.0109",
+        "https://yznkxjs.xml-journal.net/cn/article/id/cfb381ad-0243-40d3-83d4-5905b92b08d1",
+        "https://yznkxjs.xml-journal.net/cn/article/pdf/preview/10.7538/yzk.2025.youxian.0109.pdf"
+      ],
+      "why_read": "中文进阶材料，学习利用轴向与径向尺度差异改进三维输运离散。本文研究特征面而非通常的一维特征线积分，应作为相关扩展与直接三维MOC和2D/1D分别比较。",
+      "questions": [
+        "特征面求解的对象与特征线上的常微分方程有何不同？",
+        "轴向四阶、径向零阶近似依赖哪些几何假设，基准能支持哪些结论？"
+      ],
+      "reading_basis": "abstract + official_fulltext_excerpt",
+      "verification_notes": "2026-10-09期刊官网与中文版正式PDF首页/方法片段核验作者、题名、2026年卷60期1、页175–184。Crossref端点404未能验证，不能写成Crossref已收录；DOI含2025优先发表标记，引用正式年2026。"
+    }
+  ],
+  "supporting_resources": [
+    {
+      "id": "R01",
+      "title": "OpenMOC Theory and Methodology",
+      "version": "在线文档；访问日期2026-10-09",
+      "source_urls": [
+        "https://mit-crpg.github.io/OpenMOC/methods/index.html",
+        "https://mit-crpg.github.io/OpenMOC/methods/method_of_characteristics.html",
+        "https://mit-crpg.github.io/OpenMOC/methods/eigenvalue_calculations.html",
+        "https://mit-crpg.github.io/OpenMOC/methods/track_generation.html",
+        "https://mit-crpg.github.io/OpenMOC/methods/cmfd.html"
+      ],
+      "why_read": "首要免费教学入口：按输运方程、特征线变换、平源积分、源迭代、轨迹生成、CMFD的顺序读。",
+      "reading_basis": "official_documentation"
+    },
+    {
+      "id": "R02",
+      "title": "OpenMOC source code and sample inputs",
+      "version": "在线仓库；使用时记录具体commit",
+      "source_urls": [
+        "https://github.com/mit-crpg/OpenMOC"
+      ],
+      "why_read": "把理论对象与代码实现对应，并从简单输入学习几何、材料、求解设置；示例能运行不等于版本与所有平台兼容性已验证。",
+      "reading_basis": "official_repository"
+    },
+    {
+      "id": "R03",
+      "title": "MPACT 4.4 Theory Manual",
+      "year": 2023,
+      "version": "4.4",
+      "doi": "10.2172/2305812",
+      "source_urls": [
+        "https://doi.org/10.2172/2305812",
+        "https://www.osti.gov/biblio/2305812",
+        "https://impact.ornl.gov/en/publications/mpact-44-theory-manual/",
+        "https://www.osti.gov/servlets/purl/2305812"
+      ],
+      "why_read": "进阶查阅2D/1D、截面处理、源迭代与加速的系统理论；以版本4.4为准，避免与其他版本方程编号混用。",
+      "reading_basis": "official_record + report_frontmatter"
+    },
+    {
+      "id": "R04",
+      "title": "Benchmark on Deterministic Transport Calculations Without Spatial Homogenisation: A 2-D/3-D MOX Fuel Assembly Benchmark",
+      "version": "NEA/NSC/DOC(2003)16；稳态C5G7报告",
+      "source_urls": [
+        "https://www.oecd-nea.org/jcms/pl_13548/benchmark-on-deterministic-transport-calculations-without-spatial-homogenisation?details=true"
+      ],
+      "why_read": "使用约定几何、7群截面、边界和参考解比较方法；该报告不能与后续C5G7-TD瞬态基准混为一谈。",
+      "reading_basis": "official_record"
+    },
+    {
+      "id": "R05",
+      "title": "BEAVRS benchmark specification",
+      "version": "revision 2.0.1",
+      "source_urls": [
+        "https://crpg.mit.edu/wp-content/uploads/2017/01/beavrs_2.0.1_spec.pdf"
+      ],
+      "why_read": "配合P07了解真实尺度堆芯模型和运行数据；这里固定rev.2.0.1，不把它描述为最新版本。复现具体论文需核对其采用的规范版本与工况。",
+      "reading_basis": "official_specification_record"
+    }
+  ]
+}

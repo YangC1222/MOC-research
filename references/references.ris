@@ -1,0 +1,252 @@
+TY  - JOUR
+ID  - P01
+TI  - Method of characteristics – A review with applications to science and nuclear engineering computation
+AU  - Eklund, Matthew
+AU  - Alamaniotis, Miltiadis
+AU  - Hernandez, Hermilo
+AU  - Jevremovic, Tatjana
+PY  - 2015
+JO  - Progress in Nuclear Energy
+VL  - 85
+SP  - 548
+EP  - 567
+DO  - 10.1016/j.pnucene.2015.05.002
+UR  - https://doi.org/10.1016/j.pnucene.2015.05.002
+ER  -
+
+TY  - JOUR
+ID  - P02
+TI  - The OpenMOC method of characteristics neutral particle transport code
+AU  - Boyd, William
+AU  - Shaner, Samuel
+AU  - Li, Lulu
+AU  - Forget, Benoit
+AU  - Smith, Kord
+PY  - 2014
+JO  - Annals of Nuclear Energy
+VL  - 68
+SP  - 43
+EP  - 52
+DO  - 10.1016/j.anucene.2013.12.012
+UR  - https://doi.org/10.1016/j.anucene.2013.12.012
+ER  -
+
+TY  - CHAP
+ID  - P03
+TI  - The method of characteristics
+AU  - Liu, Zhouyu
+PY  - 2021
+T2  - Deterministic Numerical Methods for Unstructured-Mesh Neutron Transport Calculation
+SP  - 73
+EP  - 108
+DO  - 10.1016/B978-0-12-818221-5.00010-6
+UR  - https://doi.org/10.1016/B978-0-12-818221-5.00010-6
+ER  -
+
+TY  - JOUR
+ID  - P04
+TI  - A Linear Source Approximation Scheme for the Method of Characteristics
+AU  - Ferrer, Rodolfo M.
+AU  - Rhodes III, Joel D.
+PY  - 2016
+JO  - Nuclear Science and Engineering
+VL  - 182
+IS  - 2
+SP  - 151
+EP  - 165
+DO  - 10.13182/NSE15-6
+UR  - https://doi.org/10.13182/NSE15-6
+ER  -
+
+TY  - JOUR
+ID  - P05
+TI  - A new three-dimensional method of characteristics for the neutron transport calculation
+AU  - Liu, Zhouyu
+AU  - Wu, Hongchun
+AU  - Cao, Liangzhi
+AU  - Chen, Qichang
+AU  - Li, Yunzhao
+PY  - 2011
+JO  - Annals of Nuclear Energy
+VL  - 38
+IS  - 2-3
+SP  - 447
+EP  - 454
+DO  - 10.1016/j.anucene.2010.09.021
+UR  - https://doi.org/10.1016/j.anucene.2010.09.021
+ER  -
+
+TY  - JOUR
+ID  - P06
+TI  - Stability and accuracy of 3D neutron transport simulations using the 2D/1D method in MPACT
+AU  - Collins, Benjamin
+AU  - Stimpson, Shane
+AU  - Kelley, Blake W.
+AU  - Young, Mitchell T.H.
+AU  - Kochunas, Brendan
+AU  - Graham, Aaron
+AU  - Larsen, Edward W.
+AU  - Downar, Thomas
+AU  - Godfrey, Andrew
+PY  - 2016
+JO  - Journal of Computational Physics
+VL  - 326
+SP  - 612
+EP  - 628
+DO  - 10.1016/j.jcp.2016.08.022
+UR  - https://doi.org/10.1016/j.jcp.2016.08.022
+ER  -
+
+TY  - JOUR
+ID  - P07
+TI  - Full core 3D simulation of the BEAVRS benchmark with OpenMOC
+AU  - Gunow, Geoffrey
+AU  - Forget, Benoit
+AU  - Smith, Kord
+PY  - 2019
+JO  - Annals of Nuclear Energy
+VL  - 134
+SP  - 299
+EP  - 304
+DO  - 10.1016/j.anucene.2019.05.050
+UR  - https://doi.org/10.1016/j.anucene.2019.05.050
+ER  -
+
+TY  - JOUR
+ID  - P08
+TI  - Method of Characteristics for 3D, Full-Core Neutron Transport on Unstructured Mesh
+AU  - Gaston, Derek R.
+AU  - Forget, Benoit
+AU  - Smith, Kord S.
+AU  - Harbour, Logan H.
+AU  - Ridley, Gavin K.
+AU  - Giudicelli, Guillaume G.
+PY  - 2021
+JO  - Nuclear Technology
+VL  - 207
+IS  - 7
+SP  - 931
+EP  - 953
+DO  - 10.1080/00295450.2021.1871995
+UR  - https://doi.org/10.1080/00295450.2021.1871995
+ER  -
+
+TY  - JOUR
+ID  - P09
+TI  - A task-based parallelism and vectorized approach to 3D Method of Characteristics (MOC) reactor simulation for high performance computing architectures
+AU  - Tramm, John R.
+AU  - Gunow, Geoffrey
+AU  - He, Tim
+AU  - Smith, Kord S.
+AU  - Forget, Benoit
+AU  - Siegel, Andrew R.
+PY  - 2016
+JO  - Computer Physics Communications
+VL  - 202
+SP  - 141
+EP  - 150
+DO  - 10.1016/j.cpc.2016.01.007
+UR  - https://doi.org/10.1016/j.cpc.2016.01.007
+ER  -
+
+TY  - JOUR
+ID  - P10
+TI  - GPU Based Two-Level CMFD Accelerating Two-Dimensional MOC Neutron Transport Calculation
+AU  - Song, Peitao
+AU  - Zhang, Qian
+AU  - Liang, Liang
+AU  - Zhang, Zhijian
+AU  - Zhao, Qiang
+PY  - 2020
+JO  - Frontiers in Energy Research
+VL  - 8
+SP  - 124
+N1  - Article number: 124
+DO  - 10.3389/fenrg.2020.00124
+UR  - https://doi.org/10.3389/fenrg.2020.00124
+ER  -
+
+TY  - JOUR
+ID  - P11
+TI  - GPU-accelerated few-group 3D Method of Characteristics for full-core neutron transport in Small Modular Reactors
+AU  - Song, Qufei
+AU  - Wang, Ruixiang
+AU  - Shen, Yuyang
+AU  - Wu, Yiwei
+AU  - Feng, Kuaiyuan
+AU  - Guo, Hui
+AU  - Xiao, Yao
+AU  - Gu, Hanyang
+PY  - 2026
+JO  - Progress in Nuclear Energy
+VL  - 192
+SP  - 106109
+N1  - Article number: 106109
+DO  - 10.1016/j.pnucene.2025.106109
+UR  - https://doi.org/10.1016/j.pnucene.2025.106109
+ER  -
+
+TY  - JOUR
+ID  - P12
+TI  - A generalized coarse mesh finite difference acceleration for 3D method of characteristics in hexagonal fast reactor simulations
+AU  - Geng, Xiaoxu
+AU  - Hu, Yun
+AU  - Yu, Jiayi
+AU  - Wang, Chong
+AU  - Shan, Haodong
+AU  - Wang, Zhaoshun
+PY  - 2025
+JO  - Nuclear Engineering and Design
+VL  - 445
+SP  - 114429
+N1  - Article number: 114429
+DO  - 10.1016/j.nucengdes.2025.114429
+UR  - https://doi.org/10.1016/j.nucengdes.2025.114429
+ER  -
+
+TY  - JOUR
+ID  - P13
+TI  - The Random Ray Method for neutral particle transport
+AU  - Tramm, John R.
+AU  - Smith, Kord S.
+AU  - Forget, Benoit
+AU  - Siegel, Andrew R.
+PY  - 2017
+JO  - Journal of Computational Physics
+VL  - 342
+SP  - 229
+EP  - 252
+DO  - 10.1016/j.jcp.2017.04.038
+UR  - https://doi.org/10.1016/j.jcp.2017.04.038
+ER  -
+
+TY  - JOUR
+ID  - P14
+TI  - Ray Adaptive Stochastic Transport (RASTr): Importance sampling based variance reduction for characteristics method transport solvers
+AU  - Mylotte, Owen
+AU  - Forget, Benoit
+PY  - 2026
+JO  - Annals of Nuclear Energy
+VL  - 230
+SP  - 112152
+N1  - Article number: 112152
+DO  - 10.1016/j.anucene.2026.112152
+UR  - https://doi.org/10.1016/j.anucene.2026.112152
+ER  -
+
+TY  - JOUR
+ID  - P15
+TI  - 基于高阶轴向多项式展开的特征面方法
+AU  - 杨睿
+AU  - 喻宏
+AU  - 胡赟
+AU  - 霍兴凯
+PY  - 2026
+JO  - 原子能科学技术
+VL  - 60
+IS  - 1
+SP  - 175
+EP  - 184
+DO  - 10.7538/yzk.2025.youxian.0109
+UR  - https://doi.org/10.7538/yzk.2025.youxian.0109
+ER  -

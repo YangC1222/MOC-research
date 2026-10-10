@@ -1,0 +1,6 @@
+* text=auto
+*.md text eol=lf
+*.json text eol=lf
+*.bib text eol=lf
+*.ris text eol=lf
+*.pdf binary

@@ -1,0 +1,12 @@
+__pycache__/
+*.py[cod]
+.DS_Store
+Thumbs.db
+tmp/
+.venv/
+*.part
+*.download
+papers/_download-work/
+.graphflow/
+graphflow.config.json
+graphflow-out/
