@@ -1,0 +1,555 @@
+{
+  "schema_version": 1,
+  "generated_date": "2026-10-10",
+  "description": "简化教学数据。由演示页面中的同一数学内核生成，非反应堆工程数据或公开基准复现。",
+  "numerical_engine_sha256": "0e9c5015eb5e631f6d9a0015fc425e4fe84db5bcf004337c77b95a49e114fc7b",
+  "conventions": {
+    "length": "cm",
+    "macroscopic_cross_sections": "cm^-1",
+    "single_and_layers_flux": "angular flux psi in consistent teaching units",
+    "single_and_layers_source": "angular source q in flux/cm",
+    "slab_flux": "phi = f_plus + f_minus; f = 2*pi*psi; two direction weights 1 each",
+    "slab_source": "S is angle-integrated isotropic external volume source",
+    "slab_boundary": "vacuum at both ends; no fission"
+  },
+  "single_segments": [
+    {
+      "name": "只有衰减",
+      "input": 10,
+      "sigma": 0.5,
+      "source": 0,
+      "length": 2,
+      "out": 3.6787944117144233,
+      "avg": 6.321205588285577,
+      "tau": 1,
+      "incoming": 3.6787944117144233,
+      "born": 0
+    },
+    {
+      "name": "只有段内源",
+      "input": 0,
+      "sigma": 1,
+      "source": 2,
+      "length": 1,
+      "out": 1.2642411176571153,
+      "avg": 0.7357588823428847,
+      "tau": 1,
+      "incoming": 0,
+      "born": 1.2642411176571153
+    },
+    {
+      "name": "透明段",
+      "input": 3,
+      "sigma": 0,
+      "source": 2,
+      "length": 2,
+      "out": 7,
+      "avg": 5,
+      "tau": 0,
+      "incoming": 3,
+      "born": 4
+    }
+  ],
+  "layers": {
+    "input": 10,
+    "parameters": [
+      {
+        "name": "慢化剂A",
+        "thickness": 1,
+        "sigma": 0.2,
+        "source": 0
+      },
+      {
+        "name": "燃料",
+        "thickness": 1,
+        "sigma": 1,
+        "source": 2
+      },
+      {
+        "name": "慢化剂B",
+        "thickness": 1,
+        "sigma": 0.2,
+        "source": 0
+      }
+    ],
+    "normal": [
+      {
+        "name": "慢化剂A",
+        "thickness": 1,
+        "sigma": 0.2,
+        "source": 0,
+        "out": 8.187307530779819,
+        "avg": 9.063462346100907,
+        "tau": 0.2,
+        "incoming": 8.187307530779819,
+        "born": 0,
+        "input": 10,
+        "length": 1,
+        "x0": 0,
+        "x1": 1
+      },
+      {
+        "name": "燃料",
+        "thickness": 1,
+        "sigma": 1,
+        "source": 2,
+        "out": 4.276183236779136,
+        "avg": 5.9111242940006825,
+        "tau": 1,
+        "incoming": 3.011942119122021,
+        "born": 1.2642411176571153,
+        "input": 8.187307530779819,
+        "length": 1,
+        "x0": 1,
+        "x1": 2
+      },
+      {
+        "name": "慢化剂B",
+        "thickness": 1,
+        "sigma": 0.2,
+        "source": 0,
+        "out": 3.5010427217476243,
+        "avg": 3.8757025751575602,
+        "tau": 0.2,
+        "incoming": 3.5010427217476243,
+        "born": 0,
+        "input": 4.276183236779136,
+        "length": 1,
+        "x0": 2,
+        "x1": 3
+      }
+    ],
+    "oblique60Degrees": [
+      {
+        "name": "慢化剂A",
+        "thickness": 1,
+        "sigma": 0.2,
+        "source": 0,
+        "out": 6.703200460356394,
+        "avg": 8.241998849109018,
+        "tau": 0.3999999999999999,
+        "incoming": 6.703200460356394,
+        "born": 0,
+        "input": 10,
+        "length": 1.9999999999999996,
+        "x0": 0,
+        "x1": 1
+      },
+      {
+        "name": "燃料",
+        "thickness": 1,
+        "sigma": 1,
+        "source": 2,
+        "out": 2.6365089664209,
+        "avg": 4.033345746967747,
+        "tau": 1.9999999999999996,
+        "incoming": 0.9071795328941256,
+        "born": 1.7293294335267744,
+        "input": 6.703200460356394,
+        "length": 1.9999999999999996,
+        "x0": 1,
+        "x1": 2
+      },
+      {
+        "name": "慢化剂B",
+        "thickness": 1,
+        "sigma": 0.2,
+        "source": 0,
+        "out": 1.7673048117446335,
+        "avg": 2.1730103866906667,
+        "tau": 0.3999999999999999,
+        "incoming": 1.7673048117446335,
+        "born": 0,
+        "input": 2.6365089664209,
+        "length": 1.9999999999999996,
+        "x0": 2,
+        "x1": 3
+      }
+    ]
+  },
+  "track_area_integral": [
+    {
+      "count": 13,
+      "azimuth_degrees": 30,
+      "radius": 0.55,
+      "width": 0.21015775442837517,
+      "true_area": 0.9503317777109126,
+      "estimated_area": 0.9566360098898006,
+      "relative_error": 0.006633717115166915,
+      "tracks_hitting_fuel": 5
+    },
+    {
+      "count": 33,
+      "azimuth_degrees": 30,
+      "radius": 0.55,
+      "width": 0.0827894184111781,
+      "true_area": 0.9503317777109126,
+      "estimated_area": 0.9508655492816867,
+      "relative_error": 0.000561668654351255,
+      "tracks_hitting_fuel": 13
+    },
+    {
+      "count": 65,
+      "azimuth_degrees": 30,
+      "radius": 0.55,
+      "width": 0.042031550885675034,
+      "true_area": 0.9503317777109126,
+      "estimated_area": 0.9510642728464687,
+      "relative_error": 0.000770778324724164,
+      "tracks_hitting_fuel": 27
+    }
+  ],
+  "slab_one_cell": {
+    "options": {
+      "cells": 1,
+      "length": 1,
+      "sigma": 1,
+      "ratio": 0.5,
+      "source": 2,
+      "mu": 1
+    },
+    "stopping_rule": "max(abs(phi_new-phi_old))/max(phi_new) < 1e-8",
+    "converged": true,
+    "iterations": 12,
+    "average": 0.9015986928898116,
+    "cell_average_flux": [
+      0.9015986928898116
+    ],
+    "produced": 2,
+    "absorbed": 0.4507993464449058,
+    "leaked": 1.5492006505549907,
+    "relative_balance": 1.5000517494812016e-9,
+    "history": [
+      {
+        "iteration": 1,
+        "average": 0.7357588823428847,
+        "relative_change": 1,
+        "absorbed": 0.36787944117144233,
+        "leaked": 1.2642411176571153,
+        "relative_balance": 0.18393972058572117
+      },
+      {
+        "iteration": 2,
+        "average": 0.8710941655794974,
+        "relative_change": 0.15536240349696362,
+        "absorbed": 0.4355470827897487,
+        "leaked": 1.496785275591945,
+        "relative_balance": 0.03383382080915309
+      },
+      {
+        "iteration": 3,
+        "average": 0.8959876997634293,
+        "relative_change": 0.02778334366699972,
+        "absorbed": 0.44799384988171465,
+        "leaked": 1.5395593830263192,
+        "relative_balance": 0.006223383545983063
+      },
+      {
+        "iteration": 4,
+        "average": 0.9005666094856128,
+        "relative_change": 0.005084476455105242,
+        "absorbed": 0.4502833047428064,
+        "leaked": 1.5474272403961018,
+        "relative_balance": 0.0011447274305459443
+      },
+      {
+        "iteration": 5,
+        "average": 0.9014088528604985,
+        "relative_change": 0.0009343633271549901,
+        "absorbed": 0.45070442643024927,
+        "leaked": 1.5488744518823079,
+        "relative_balance": 0.00021056084372139683
+      },
+      {
+        "iteration": 6,
+        "average": 0.9015637748715403,
+        "relative_change": 0.00017183699629435423,
+        "absorbed": 0.45078188743577013,
+        "leaked": 1.5491406515587092,
+        "relative_balance": 0.00003873050276037571
+      },
+      {
+        "iteration": 7,
+        "average": 0.9015922711829639,
+        "relative_change": 0.00003160665007283623,
+        "absorbed": 0.45079613559148196,
+        "leaked": 1.5491896162528065,
+        "relative_balance": 0.000007124077855746869
+      },
+      {
+        "iteration": 8,
+        "average": 0.9015975127865248,
+        "relative_change": 0.000005813684583775243,
+        "absorbed": 0.4507987563932624,
+        "leaked": 1.5491986228049572,
+        "relative_balance": 0.0000013104008901310138
+      },
+      {
+        "iteration": 9,
+        "average": 0.9015984769256192,
+        "relative_change": 0.0000010693663744175858,
+        "absorbed": 0.4507992384628096,
+        "leaked": 1.5492002794676432,
+        "relative_balance": 2.4103477358483616e-7
+      },
+      {
+        "iteration": 10,
+        "average": 0.9015986542690948,
+        "relative_change": 1.9669891334873422e-7,
+        "absorbed": 0.4507993271345474,
+        "leaked": 1.5492005841937146,
+        "relative_balance": 4.433586897611974e-8
+      },
+      {
+        "iteration": 11,
+        "average": 0.9015986868896042,
+        "relative_change": 3.618074191890826e-8,
+        "absorbed": 0.4507993434448021,
+        "leaked": 1.5492006402449432,
+        "relative_balance": 8.155127351194835e-9
+      },
+      {
+        "iteration": 12,
+        "average": 0.9015986928898116,
+        "relative_change": 6.655075577785169e-9,
+        "absorbed": 0.4507993464449058,
+        "leaked": 1.5492006505549907,
+        "relative_balance": 1.5000517494812016e-9
+      }
+    ]
+  },
+  "slab_twenty_cells": {
+    "options": {
+      "cells": 20,
+      "length": 4,
+      "sigma": 1,
+      "ratio": 0.5,
+      "source": 2,
+      "mu": 0.5773502691896258
+    },
+    "stopping_rule": "max(abs(phi_new-phi_old))/max(phi_new) < 1e-8",
+    "converged": true,
+    "iterations": 24,
+    "average": 3.050476095163516,
+    "cell_average_flux": [
+      1.9060156429013544,
+      2.3500820863575225,
+      2.695155424093381,
+      2.9619396447498225,
+      3.1664414833446077,
+      3.3209308062736125,
+      3.4346767886535674,
+      3.5145040537684933,
+      3.565202142323087,
+      3.5898128791697035,
+      3.5898128791697035,
+      3.565202142323087,
+      3.5145040537684933,
+      3.4346767886535674,
+      3.3209308062736125,
+      3.1664414833446077,
+      2.9619396447498225,
+      2.695155424093381,
+      2.3500820863575225,
+      1.9060156429013544
+    ],
+    "produced": 8,
+    "absorbed": 6.100952190327032,
+    "leaked": 1.8990477842615727,
+    "relative_balance": 3.1764244290410915e-9,
+    "history": [
+      {
+        "iteration": 1,
+        "average": 1.7116076976656758,
+        "relative_change": 1,
+        "absorbed": 3.4232153953313516,
+        "leaked": 1.1535692093372967,
+        "relative_balance": 0.42790192441641894
+      },
+      {
+        "iteration": 2,
+        "average": 2.459437985400595,
+        "relative_change": 0.31852333484744605,
+        "absorbed": 4.91887597080119,
+        "leaked": 1.5854634537289716,
+        "relative_balance": 0.18695757193372975
+      },
+      {
+        "iteration": 3,
+        "average": 2.788874887037292,
+        "relative_change": 0.1269235519994524,
+        "absorbed": 5.577749774074584,
+        "leaked": 1.7633764226520194,
+        "relative_balance": 0.08235922540917459
+      },
+      {
+        "iteration": 4,
+        "average": 2.9345412728003915,
+        "relative_change": 0.05405604599116017,
+        "absorbed": 5.869082545600783,
+        "leaked": 1.8395846828730182,
+        "relative_balance": 0.03641659644077486
+      },
+      {
+        "iteration": 5,
+        "average": 2.999064992750887,
+        "relative_change": 0.023592954802179836,
+        "absorbed": 5.998129985501774,
+        "leaked": 1.872822574597233,
+        "relative_balance": 0.016130929987624137
+      },
+      {
+        "iteration": 6,
+        "average": 3.0276709707958642,
+        "relative_change": 0.010398024344613385,
+        "absorbed": 6.0553419415917284,
+        "leaked": 1.8874461023183164,
+        "relative_balance": 0.007151494511244388
+      },
+      {
+        "iteration": 7,
+        "average": 3.040358589866904,
+        "relative_change": 0.00460099601974379,
+        "absorbed": 6.080717179733808,
+        "leaked": 1.8939075821241154,
+        "relative_balance": 0.0031719047677595535
+      },
+      {
+        "iteration": 8,
+        "average": 3.0459871257462376,
+        "relative_change": 0.0020392373507903488,
+        "absorbed": 6.091974251492475,
+        "leaked": 1.896768676748854,
+        "relative_balance": 0.0014071339698338292
+      },
+      {
+        "iteration": 9,
+        "average": 3.04848434300928,
+        "relative_change": 0.0009044354377494071,
+        "absorbed": 6.09696868601856,
+        "leaked": 1.8980368794553555,
+        "relative_balance": 0.0006243043157606043
+      },
+      {
+        "iteration": 10,
+        "average": 3.049592343174209,
+        "relative_change": 0.0004012424128886055,
+        "absorbed": 6.099184686348418,
+        "leaked": 1.8985993133217234,
+        "relative_balance": 0.0002770000412322948
+      },
+      {
+        "iteration": 11,
+        "average": 3.0500839688287393,
+        "relative_change": 0.0001780261540446331,
+        "absorbed": 6.100167937657479,
+        "leaked": 1.898848811033461,
+        "relative_balance": 0.00012290641363255084
+      },
+      {
+        "iteration": 12,
+        "average": 3.050302108581075,
+        "relative_change": 0.00007899131666843082,
+        "absorbed": 6.10060421716215,
+        "leaked": 1.8989595033331796,
+        "relative_balance": 0.0000545349380837723
+      },
+      {
+        "iteration": 13,
+        "average": 3.0503989002226906,
+        "relative_change": 0.00003504950159632232,
+        "absorbed": 6.100797800445381,
+        "leaked": 1.8990086162713882,
+        "relative_balance": 0.00002419791040383923
+      },
+      {
+        "iteration": 14,
+        "average": 3.0504418481556232,
+        "relative_change": 0.00001555201928995266,
+        "absorbed": 6.1008836963112465,
+        "leaked": 1.8990304078228892,
+        "relative_balance": 0.000010736983233033959
+      },
+      {
+        "iteration": 15,
+        "average": 3.0504609048406968,
+        "relative_change": 0.000006900689626424514,
+        "absorbed": 6.1009218096813935,
+        "leaked": 1.8990400769484592,
+        "relative_balance": 0.0000047641712684065585
+      },
+      {
+        "iteration": 16,
+        "average": 3.0504693606033713,
+        "relative_change": 0.0000030619520597479,
+        "absorbed": 6.1009387212067425,
+        "leaked": 1.899044367267907,
+        "relative_balance": 0.000002113940668818648
+      },
+      {
+        "iteration": 17,
+        "average": 3.050473112564939,
+        "relative_change": 0.0000013586396434091655,
+        "absorbed": 6.100946225129878,
+        "leaked": 1.899046270946988,
+        "relative_balance": 9.37990391775001e-7
+      },
+      {
+        "iteration": 18,
+        "average": 3.050474777372578,
+        "relative_change": 6.02851216425846e-7,
+        "absorbed": 6.100949554745156,
+        "leaked": 1.8990471156395656,
+        "relative_balance": 4.162019097420089e-7
+      },
+      {
+        "iteration": 19,
+        "average": 3.050475516075437,
+        "relative_change": 2.674951825301476e-7,
+        "absorbed": 6.100951032150874,
+        "leaked": 1.8990474904434058,
+        "relative_balance": 1.8467571499813928e-7
+      },
+      {
+        "iteration": 20,
+        "average": 3.0504758438502075,
+        "relative_change": 1.1869208621232066e-7,
+        "absorbed": 6.100951687700415,
+        "leaked": 1.8990476567500463,
+        "relative_balance": 8.19436923316097e-8
+      },
+      {
+        "iteration": 21,
+        "average": 3.05047598928934,
+        "relative_change": 5.26656616743533e-8,
+        "absorbed": 6.10095197857868,
+        "leaked": 1.8990477305430604,
+        "relative_balance": 3.6359782490391623e-8
+      },
+      {
+        "iteration": 22,
+        "average": 3.050476053823107,
+        "relative_change": 2.336863335506101e-8,
+        "absorbed": 6.100952107646214,
+        "leaked": 1.8990477632862486,
+        "relative_balance": 1.6133442165555678e-8
+      },
+      {
+        "iteration": 23,
+        "average": 3.0504760824578168,
+        "relative_change": 1.0369052750528513e-8,
+        "absorbed": 6.1009521649156335,
+        "leaked": 1.899047777814947,
+        "relative_balance": 7.158677428620308e-9
+      },
+      {
+        "iteration": 24,
+        "average": 3.050476095163516,
+        "relative_change": 4.600921765293529e-9,
+        "absorbed": 6.100952190327032,
+        "leaked": 1.8990477842615727,
+        "relative_balance": 3.1764244290410915e-9
+      }
+    ]
+  }
+}

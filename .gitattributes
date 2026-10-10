@@ -3,4 +3,6 @@
 *.json text eol=lf
 *.bib text eol=lf
 *.ris text eol=lf
+*.html text eol=lf
+*.cjs text eol=lf
 *.pdf binary

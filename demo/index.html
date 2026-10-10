@@ -1,0 +1,317 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="用可手算例题和交互计算学习中子输运特征线法：单段传播、分层材料、二维轨迹、散射源迭代。">
+<title>MOC 小课堂 · 沿一条线，看懂中子输运</title>
+<style>
+:root{--ink:#172c3b;--muted:#61717a;--blue:#2765b0;--orange:#be6434;--teal:#167369;--line:#dce2e3;--paper:#f6f6f1;--card:#fff;--soft:#eaf1f5;--serif:"Noto Serif SC","Songti SC",SimSun,serif}
+*{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.7 "Microsoft YaHei","PingFang SC",system-ui,sans-serif}button,input,select{font:inherit}button,a,input{touch-action:manipulation}a{color:var(--blue)}button{cursor:pointer}button:disabled{cursor:default;opacity:.45}button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible{outline:3px solid #b27333;outline-offset:4px}button{border:1px solid var(--line);border-radius:8px;padding:9px 16px;background:white;color:var(--ink)}button:hover:not(:disabled){background:var(--soft)}.primary{background:var(--ink);border-color:var(--ink);color:white}.primary:hover:not(:disabled){background:#2b4759}.topbar{max-width:1250px;margin:auto;display:flex;align-items:center;justify-content:space-between;padding:22px 32px;gap:20px}.brand{font-size:15px;font-weight:750;letter-spacing:.05em}.brand b{display:inline-block;color:white;background:var(--ink);padding:3px 8px;border-radius:4px;margin-right:10px}.topbar a{font-size:13px;text-decoration:none}.hero{max-width:1186px;margin:12px auto 28px;padding:0 32px}.eyebrow{font-size:12px;letter-spacing:.13em;color:var(--teal);font-weight:700}.hero h1{font-family:var(--serif);font-size:clamp(28px,4vw,46px);line-height:1.4;font-weight:700;letter-spacing:.01em;margin:12px 0}.hero p{max-width:760px;color:var(--muted);margin:0}.intro-line{display:flex;gap:18px;margin-top:15px;flex-wrap:wrap;font-size:13px;color:var(--muted)}.intro-line span::before{content:'•';color:var(--teal);margin-right:7px}.nav-shell{position:sticky;top:0;z-index:10;background:rgba(246,246,241,.96);border-bottom:1px solid var(--line);backdrop-filter:blur(8px)}.tabs{max-width:1186px;margin:auto;padding:0 32px;display:flex;gap:26px;overflow:auto}.tabs button{white-space:nowrap;border:0;border-radius:0;border-bottom:3px solid transparent;background:none;padding:17px 0 14px;font-size:14px;color:var(--muted)}.tabs button[aria-selected=true]{border-color:var(--teal);color:var(--ink);font-weight:700}.tabs small{font-size:11px;letter-spacing:.06em;margin-right:8px;color:var(--teal)}main{max-width:1186px;margin:28px auto 46px;padding:0 32px}.lesson-head{display:flex;align-items:flex-start;justify-content:space-between;gap:20px;margin-bottom:22px}.lesson-head h2{font-size:25px;margin:0 0 6px;font-family:var(--serif)}.lesson-head p{color:var(--muted);margin:0;max-width:810px}.badge{white-space:nowrap;font-size:12px;background:#e9f1ed;border:1px solid #d0e4dc;color:var(--teal);padding:5px 10px;border-radius:5px}.layout{display:grid;grid-template-columns:290px minmax(0,1fr);gap:22px;align-items:start}.card{background:var(--card);border:1px solid var(--line);border-radius:12px;box-shadow:0 3px 12px #20323e04}.controls{padding:21px}.card h3{font-size:15px;margin:0 0 17px}.control{margin-bottom:22px}.control:last-child{margin-bottom:0}.control label,.control-label{display:flex;justify-content:space-between;align-items:center;font-size:14px;gap:8px}.control output{font-variant-numeric:tabular-nums;font-size:13px;background:var(--soft);border-radius:4px;padding:2px 7px;min-width:54px;text-align:right;color:var(--blue)}input[type=range]{display:block;width:100%;accent-color:var(--blue);margin:12px 0 5px;cursor:pointer}input[type=number]{width:80px;max-width:100%;border:1px solid var(--line);border-radius:5px;padding:5px 8px;color:var(--ink)}select{display:block;width:100%;padding:7px 9px;border:1px solid var(--line);border-radius:6px;background:white;color:var(--ink);margin-top:9px}.hint{font-size:12px;color:var(--muted);line-height:1.6;margin:4px 0}.presets{display:flex;flex-wrap:wrap;gap:7px}.presets button{font-size:12px;padding:6px 9px}.controls hr{border:0;border-top:1px solid var(--line);margin:20px 0}.metrics{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin-bottom:13px}.metric{padding:14px 16px;background:var(--card);border:1px solid var(--line);border-radius:9px}.metric span{font-size:12px;color:var(--muted);display:block}.metric strong{display:block;font-size:25px;line-height:1.5;font-variant-numeric:tabular-nums;font-weight:650}.metric small{font-size:11px;color:var(--muted)}.chart-card{padding:18px 20px 12px}.chart-top{display:flex;align-items:center;justify-content:space-between;gap:12px}.chart-top h3{margin:0;font-size:14px}.legend{display:flex;flex-wrap:wrap;gap:12px;font-size:11px;color:var(--muted)}.legend span::before{display:inline-block;content:'';width:13px;height:3px;border-radius:2px;margin-right:4px;vertical-align:middle;background:var(--legend-color)}svg.chart{display:block;width:100%;height:auto;aspect-ratio:710/320;margin-top:10px;overflow:visible}svg text{font-family:"Microsoft YaHei",system-ui,sans-serif}svg.geometry{display:block;width:100%;height:auto;max-height:410px}.readout{font-size:14px;background:#eef4f2;border-left:3px solid var(--teal);padding:13px 16px;margin-top:13px;border-radius:0 7px 7px 0;min-height:72px}.readout p{margin:0}.formula{font-size:15px;font-family:Georgia,"Microsoft YaHei",serif;line-height:2;background:#f4f6f7;padding:12px 15px;border-radius:7px;margin:13px 0;overflow-wrap:anywhere}.formula strong{color:var(--blue)}.teach-row{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:20px}.teach{padding:20px 22px}.teach h3{margin-bottom:8px}.teach p{font-size:14px;margin:7px 0;color:var(--muted)}.teach b{color:var(--ink)}.teach ol{padding-left:21px;font-size:14px;color:var(--muted);margin:8px 0}.teach li{margin:6px 0}.table-wrap{overflow-x:auto}table{border-collapse:collapse;width:100%;font-size:13px;font-variant-numeric:tabular-nums}th,td{padding:9px 10px;text-align:right;border-bottom:1px solid var(--line);white-space:nowrap}th{color:var(--muted);font-weight:500;background:#f8f9f7}th:first-child,td:first-child{text-align:left}tbody tr.active td{background:#edf5f1}.layer-controls{width:100%;font-size:12px}.layer-controls th,.layer-controls td{padding:7px 4px}.layer-controls input{width:60px;font-size:12px;padding:4px}.buttons{display:flex;gap:8px;flex-wrap:wrap;margin-top:13px}.buttons button{font-size:13px}.two-charts{display:grid;grid-template-columns:1fr 1fr;gap:12px}.two-charts .chart-card{padding:14px}.two-charts svg.chart{aspect-ratio:710/370}.progress{margin:13px 0;font-size:13px;color:var(--muted)}.progress strong{color:var(--teal)}.equation-note{font-size:12px;color:var(--muted);margin:9px 0}.footer{border-top:1px solid var(--line);max-width:1122px;margin:0 auto;padding:22px 0 35px;color:var(--muted);font-size:12px;display:flex;gap:16px;justify-content:space-between;flex-wrap:wrap}.footer a{font-size:12px}.footer-actions{display:flex;gap:8px}.footer-actions button{font-size:12px;padding:5px 10px}.mobile-note{font-size:12px;color:var(--muted)}[hidden]{display:none!important}.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0)}
+@media(max-width:900px){.layout{grid-template-columns:240px minmax(0,1fr)}.tabs{gap:18px}.metric{padding:11px}.metric strong{font-size:21px}.two-charts{grid-template-columns:1fr}.chart-top{align-items:flex-start;flex-direction:column}.layer-controls input{width:52px}.footer{margin:0 32px}}
+@media(max-width:680px){.topbar{padding:18px 20px}.hero{padding:0 20px}.hero h1{font-size:29px}.topbar a{font-size:12px}.tabs{padding:0 20px;gap:19px}.tabs button{font-size:12px}.tabs small{margin-right:4px}main{padding:0 18px;margin-top:22px}.lesson-head{display:block}.lesson-head h2{font-size:23px}.lesson-head .badge{display:inline-block;margin-top:10px}.layout{grid-template-columns:1fr}.controls{padding:18px}.controls-grid{display:grid;grid-template-columns:1fr 1fr;gap:0 18px}.control{margin-bottom:16px}.controls-grid .control:last-child{margin-bottom:16px}.teach-row{grid-template-columns:1fr;gap:12px}.metrics{gap:7px}.metric strong{font-size:20px}.metric{padding:11px}.metric small{font-size:10px}.chart-card{padding:14px}.footer{margin:0 20px}.layer-controls input{width:100%}.chart-top{flex-direction:column;align-items:flex-start}.intro-line{gap:8px 15px}.readout{font-size:13px}.hero p{font-size:14px}}
+@media print{.topbar,.nav-shell,.controls,.footer-actions{display:none}.hero,main{max-width:none;padding:0}.hero{margin-top:0}.layout{display:block}.card,.metric{box-shadow:none;break-inside:avoid}.teach-row{display:block}.teach{margin-top:15px}.footer{padding-bottom:0}.lesson-head{margin-top:25px}body{background:white}}
+.layout>*{min-width:0}.table-wrap{max-width:100%}.control-label span,.control label>span{min-width:0}
+</style>
+</head>
+<body>
+<header class="topbar"><div class="brand"><b>MOC</b>输运小课堂</div><a href="https://github.com/YangC1222/MOC-research" target="_blank" rel="noopener">调研资料与原文 ↗</a></header>
+<div class="hero"><div class="eyebrow">从直觉到计算 · 4 个小实验</div><h1>沿一条线，看懂中子输运。</h1><p>先看入口的通量怎样留下来，再看材料内部怎样补充它。改变参数、亲手走一遍计算，最后理解为什么需要许多条线和反复迭代。</p><div class="intro-line"><span>每次调整都重新计算</span><span>可离线使用</span><span>简化教学数据</span></div></div>
+<nav class="nav-shell" aria-label="教学步骤"><div class="tabs" role="tablist" aria-label="四个实验"><button role="tab" id="tab-1" aria-controls="lesson-1" aria-selected="true" data-tab="1"><small>01</small>一条线</button><button role="tab" id="tab-2" aria-controls="lesson-2" aria-selected="false" tabindex="-1" data-tab="2"><small>02</small>穿过不同材料</button><button role="tab" id="tab-3" aria-controls="lesson-3" aria-selected="false" tabindex="-1" data-tab="3"><small>03</small>覆盖一个截面</button><button role="tab" id="tab-4" aria-controls="lesson-4" aria-selected="false" tabindex="-1" data-tab="4"><small>04</small>为什么要迭代</button></div></nav>
+<main>
+<section id="lesson-1" role="tabpanel" aria-labelledby="tab-1">
+<div class="lesson-head"><div><h2>走完一段材料，还剩多少通量？</h2><p>出口通量由两部分组成：入口留下来的，加上段内源补充的。蓝线与橙线相加，就是深色的总通量。</p></div><span class="badge">可直接手算</span></div>
+<div class="layout"><aside class="card controls"><h3>试着改变这 4 个量</h3><div class="controls-grid">
+<div class="control"><label for="single-in"><span>入口角通量 ψ<sub>in</sub></span><output id="single-in-value"></output></label><input id="single-in" type="range" min="0" max="20" step="0.5" value="10"><p class="hint">这条线起点的通量。</p></div>
+<div class="control"><label for="single-sigma"><span>总截面 Σ<sub>t</sub> / cm⁻¹</span><output id="single-sigma-value"></output></label><input id="single-sigma" type="range" min="0" max="3" step="0.05" value="0.5"><p class="hint">越大，沿线原有通量衰减越快。</p></div>
+<div class="control"><label for="single-length">真实段长 L / cm<output id="single-length-value"></output></label><input id="single-length" type="range" min="0.1" max="5" step="0.1" value="2"><p class="hint">是实际走过的距离。</p></div>
+<div class="control"><label for="single-source">段内源 q / 通量·cm⁻¹<output id="single-source-value"></output></label><input id="single-source" type="range" min="0" max="6" step="0.1" value="0"><p class="hint">沿线每单位长度补充多少通量。</p></div></div><hr><h3>三个小实验</h3><div class="presets"><button data-single-preset="attenuation">只有衰减</button><button data-single-preset="source">只有段内源</button><button data-single-preset="transparent">透明段</button></div><p class="hint" style="margin-top:12px">ψ 使用教学归一化数值；此页 q 是每单位立体角的源，与第4页的体外源 S 区分。</p></aside>
+<div><div class="metrics" aria-live="polite"><div class="metric"><span>出口角通量</span><strong id="single-out"></strong><small>入口贡献 + 源贡献</small></div><div class="metric"><span>段平均角通量</span><strong id="single-avg"></strong><small>整段上的平均值</small></div><div class="metric"><span>光学厚度 τ = Σt L</span><strong id="single-tau"></strong><small>决定衰减程度</small></div></div>
+<div class="card chart-card"><div class="chart-top"><h3>通量沿这段材料的变化</h3><div class="legend"><span style="--legend-color:#2765b0">入口贡献</span><span style="--legend-color:#be6434">源贡献</span><span style="--legend-color:#172c3b">总通量</span></div></div><svg id="single-chart" class="chart" viewBox="0 0 710 320" role="img" aria-label="入口贡献、源贡献和总角通量沿实际距离的变化"></svg><div id="single-equation" class="formula"></div><p id="single-split" class="equation-note"></p></div><div id="single-insight" class="readout"></div></div></div>
+<div class="teach-row"><div class="card teach"><h3>先看物理，再看公式</h3><p><b>蓝线：</b>原有方向上的中子经过相互作用，被移出这条传播贡献。无源时按指数衰减。</p><p><b>橙线：</b>材料段中的源补充通量；这些贡献也要经过后续衰减才能到出口。</p><p>总截面包括散射与吸收，因此蓝线的衰减不能全解释成“中子被吸收”。</p></div><div class="card teach"><h3>亲手做一遍</h3><ol><li>点“只有衰减”：10 × exp(−0.5 × 2) ≈ 3.6788。</li><li>点“只有段内源”：0 + 2 × (1 − exp(−1)) ≈ 1.2642。</li><li>点“透明段”：没有衰减，但有源时仍会增长；Σt = 0 不代表 q 必须为0。</li></ol></div></div>
+</section>
+<section id="lesson-2" role="tabpanel" aria-labelledby="tab-2" hidden>
+<div class="lesson-head"><div><h2>上一段的出口，就是下一段的入口。</h2><p>先慢化剂、再燃料、再慢化剂。每个材料段使用自己的截面与源，把同一个段公式接力使用。</p></div><span class="badge">三段接力</span></div>
+<div class="layout"><aside class="card controls"><h3>一条线，三种段参数</h3><div class="control"><label for="layer-in">起点角通量<output id="layer-in-value"></output></label><input id="layer-in" type="range" min="0" max="20" step="0.5" value="10"></div><div class="control"><label for="layer-angle">与层法线的夹角 α<output id="layer-angle-value"></output></label><input id="layer-angle" type="range" min="0" max="75" step="1" value="0"><p class="hint">α = 0° 为垂直穿过；真实段长 = 层厚 / cos α。</p></div><div class="table-wrap"><table class="layer-controls"><thead><tr><th>段</th><th>层厚/cm</th><th>Σt/cm⁻¹</th><th>q</th></tr></thead><tbody id="layer-inputs"></tbody></table></div><div class="buttons"><button id="layer-next" class="primary">看第 1 段</button><button id="layer-reset">恢复例题</button></div><p class="hint" style="margin-top:12px">参数只是教学设定，不代表实际燃料或慢化剂数据库。</p></aside><div>
+<div class="metrics" aria-live="polite"><div class="metric"><span>最后的出口角通量</span><strong id="layer-out"></strong><small>从左边走到最右边</small></div><div class="metric"><span>实际飞行距离 / cm</span><strong id="layer-distance"></strong><small>所有材料段相加</small></div><div class="metric"><span>总光学厚度</span><strong id="layer-tau"></strong><small>∑ Σt,i Li</small></div></div>
+<div class="card chart-card"><svg id="layer-diagram" viewBox="0 0 710 105" style="width:100%;display:block" role="img" aria-label="射线依次穿过三层材料"></svg><div class="chart-top"><h3>每个界面连续传递角通量</h3><div class="legend"><span style="--legend-color:#172c3b">沿线角通量</span></div></div><svg id="layer-chart" class="chart" viewBox="0 0 710 320" role="img" aria-label="分层材料中的角通量曲线"></svg><div class="table-wrap"><table><thead><tr><th>材料段</th><th>真实长/cm</th><th>入口 ψ</th><th>出口 ψ</th><th>段平均 ψ</th></tr></thead><tbody id="layer-results"></tbody></table></div></div><div id="layer-insight" class="readout"></div></div></div>
+<div class="teach-row"><div class="card teach"><h3>为什么曲线可以先降、再升？</h3><p>某一段内，入口通量高于 q/Σt 时，总通量向下变化；低于这个值时，源的补充可以使总通量上升。</p><p>改变中间段的 q，看曲线的趋势如何改变。<b>材料界面处角通量连续，变化速率可以改变。</b></p></div><div class="card teach"><h3>角度为什么重要？</h3><p>把 α 从0°调到60°，相同层厚内实际路程变为两倍。衰减与源累积都要用真实路程计算。</p><p>横轴显示沿层法线的深度，所以它与真实飞行距离不同。这是二维轨迹投影学习的第一步。</p></div></div>
+</section>
+<section id="lesson-3" role="tabpanel" aria-labelledby="tab-3" hidden>
+<div class="lesson-head"><div><h2>一条线算得准，还不等于整个区域算得准。</h2><p>用一组平行轨迹覆盖一个圆形燃料区。每条线代表一条有宽度的带，段长乘以带宽才有面积。</p></div><span class="badge">真实几何切段</span></div>
+<div class="layout"><aside class="card controls"><h3>观察轨迹覆盖</h3><div class="control"><label for="track-count">平行轨迹条数<output id="track-count-value"></output></label><input id="track-count" type="range" min="5" max="65" step="2" value="13"><p class="hint">方向保持不变，只加密横向轨迹。</p></div><div class="control"><label for="track-angle">与 x 轴的方位角<output id="track-angle-value"></output></label><input id="track-angle" type="range" min="0" max="170" step="5" value="30"></div><div class="control"><label for="track-radius">圆形燃料半径 / cm<output id="track-radius-value"></output></label><input id="track-radius" type="range" min="0.15" max="0.8" step="0.05" value="0.55"></div><div class="control"><label for="track-selected">查看哪条轨迹<output id="track-selected-value"></output></label><input id="track-selected" type="range" min="1" max="13" step="1" value="7"><p class="hint">橙色是选中轨迹；圆内段用深色强调。</p></div><button id="track-reset">恢复例题</button><p class="hint" style="margin-top:12px">此页计算实际圆形交点和面积近似，展示一个方向的几何积分；完整MOC还需多个方向与源迭代。</p></aside><div>
+<div class="metrics" aria-live="polite"><div class="metric"><span>燃料真实面积 / cm²</span><strong id="track-area"></strong><small>π r²</small></div><div class="metric"><span>轨迹近似面积 / cm²</span><strong id="track-estimate"></strong><small>∑ 燃料段长 × 带宽</small></div><div class="metric"><span>面积相对偏差</span><strong id="track-error"></strong><small>近似值 − 真值</small></div></div>
+<div class="card chart-card"><div class="chart-top"><h3>2 cm × 2 cm 教学截面</h3><div class="legend"><span style="--legend-color:#2765b0">慢化剂区</span><span style="--legend-color:#172c3b">燃料段</span><span style="--legend-color:#be6434">选中轨迹</span></div></div><svg id="track-geometry" class="geometry" viewBox="0 0 710 400" role="img" aria-label="方形截面、圆形燃料与平行特征轨迹"></svg><div class="table-wrap"><table><thead><tr><th>选中线经过</th><th>该段长度 / cm</th><th>进入位置 (x,y)</th><th>离开位置 (x,y)</th></tr></thead><tbody id="track-segments"></tbody></table></div></div><div id="track-insight" class="readout"></div></div></div>
+<div class="teach-row"><div class="card teach"><h3>轨迹为什么不能只是一根细线？</h3><p>细线自身没有面积。每条轨迹代表一条带，<b>带宽 × 该线在燃料中的长度</b>，才成为燃料面积的一个近似贡献。</p><p>真正累积通量时，要同时使用空间权重与方向权重。这个实验只展示空间覆盖，不把面积偏差当成完整通量误差。</p></div><div class="card teach"><h3>做两次不同的实验</h3><ol><li>固定角度，加密轨迹，观察面积近似的变化。</li><li>固定条数，转动方向，观察切段和覆盖的变化。</li><li>缩小燃料半径，看小区域为什么更容易漏采或受粗轨迹影响。</li></ol><p>细化通常改善积分，但每次细化的偏差不一定严格单调；角度不足也不能靠轨迹加密全部解决。</p></div></div>
+</section>
+<section id="lesson-4" role="tabpanel" aria-labelledby="tab-4" hidden>
+<div class="lesson-head"><div><h2>散射源依赖通量，而通量又依赖源。</h2><p>先猜通量，再由它计算散射源，然后沿正反两个方向扫描。重复这个过程，直到前后两轮足够接近。</p></div><span class="badge">实际求解与平衡检查</span></div>
+<div class="layout"><aside class="card controls"><h3>单群平板固定源</h3><div class="controls-grid">
+<div class="control"><label for="iter-length">平板总厚度 / cm<output id="iter-length-value"></output></label><input id="iter-length" type="range" min="0.5" max="8" step="0.5" value="1"></div>
+<div class="control"><label for="iter-sigma">总截面 / cm⁻¹<output id="iter-sigma-value"></output></label><input id="iter-sigma" type="range" min="0.1" max="3" step="0.1" value="1"></div>
+<div class="control"><label for="iter-ratio">散射比例 c = Σs / Σt<output id="iter-ratio-value"></output></label><input id="iter-ratio" type="range" min="0" max="0.97" step="0.01" value="0.5"><p class="hint">Σa = (1 − c)Σt；c增大也意味着吸收减少。</p></div>
+<div class="control"><label for="iter-source">均匀体外源 S<output id="iter-source-value"></output></label><input id="iter-source" type="range" min="0.5" max="4" step="0.5" value="2"></div>
+<div class="control"><label for="iter-cells">平源区数量<output id="iter-cells-value"></output></label><input id="iter-cells" type="range" min="1" max="60" step="1" value="1"><p class="hint">初始一格方便手算；细分后观察空间分布。</p></div></div><div class="control"><label for="iter-mu">正反方向的方向余弦 |μ|</label><select id="iter-mu"><option value="1">±1：便于手算的直射模型</option><option value="0.5773502691896258">±1/√3：两点Gauss角度求积</option></select></div><div class="buttons"><button id="iter-step" class="primary">计算下一轮</button><button id="iter-run">运行到收敛</button><button id="iter-reset">重新开始</button></div><div class="presets" style="margin-top:12px"><button id="iter-preset">一格手算例题</button><button id="iter-profile">20格空间分布</button></div><p class="hint" style="margin-top:12px">两侧真空边界，单群、各向同性散射，无裂变。只有两个方向，不能代替多角度、多群二维工程MOC。</p></aside><div>
+<div class="metrics" aria-live="polite"><div class="metric"><span>当前轮数</span><strong id="iter-count">0</strong><small id="iter-status">从通量0开始</small></div><div class="metric"><span>全板平均标量通量</span><strong id="iter-average">0</strong><small>φ，与前三页的角通量ψ不同</small></div><div class="metric"><span>相邻轮通量相对变化</span><strong id="iter-residual">—</strong><small>停止阈值 10⁻⁸</small></div></div>
+<div class="two-charts"><div class="card chart-card"><h3>区域平均通量的空间分布</h3><svg id="iter-flux-chart" class="chart" viewBox="0 0 710 370" role="img" aria-label="当前与上一轮区域平均标量通量"></svg><div class="legend"><span style="--legend-color:#2765b0">当前轮</span><span style="--legend-color:#a7b6c0">上一轮</span></div></div><div class="card chart-card"><h3>每轮通量变化逐渐减小</h3><svg id="iter-history-chart" class="chart" viewBox="0 0 710 370" role="img" aria-label="源迭代相对变化随轮数的对数曲线"></svg><p class="hint">纵轴为 log₁₀(相对变化)，越向下越接近收敛。</p></div></div>
+<div class="card teach" style="margin-top:13px"><h3>中子去哪了？按单位截面积统计</h3><div class="metrics"><div class="metric"><span>外源输入 S × 厚度</span><strong id="iter-produced">2.0000</strong></div><div class="metric"><span>被吸收</span><strong id="iter-absorbed">0.0000</strong></div><div class="metric"><span>从边界泄漏</span><strong id="iter-leaked">0.0000</strong></div></div><p id="iter-balance" class="progress"></p><div class="formula">源 → 正反扫描 → 新通量 → 新散射源 → 再扫描</div><p>收敛时，应有“吸收 + 净泄漏 ≈ 外源输入”。未收敛时，新通量与旧散射源不一致，平衡差会帮助发现这一点。</p></div><div id="iter-insight" class="readout"></div></div></div>
+<div class="teach-row"><div class="card teach"><h3>先做一格的前3轮</h3><p>默认设置：Σt = 1、Σs = 0.5、S = 2、总厚1、μ = ±1。每一轮都保持段内源常数。</p><p>第一轮从 φ = 0 出发，只用外源；以后把散射补回。前3轮平均φ约为 <b>0.7358、0.8711、0.8960</b>，最终约0.9016。</p><p>详细的归一化和递推式在教学讲义中。界面不会把它当成无限介质的通量。</p></div><div class="card teach"><h3>收敛了，还能有什么误差？</h3><p>“前后两轮相近”只说明这个离散模型求解稳定了。增加平源区或角度后，结果仍可能变化。</p><p>点“20格空间分布”，用相同边界观察中心与两端的不同。然后改变散射比例，看通量分布、平衡与所需轮数如何变化。</p></div></div>
+</section>
+</main>
+<footer class="footer"><div>教学依据：<a href="https://doi.org/10.1016/j.anucene.2013.12.012" target="_blank" rel="noopener">OpenMOC论文</a> · <a href="https://mit-crpg.github.io/OpenMOC/methods/index.html" target="_blank" rel="noopener">官方理论</a> · <a href="https://github.com/YangC1222/MOC-research/blob/main/docs/03-moc-tutorial.md" target="_blank" rel="noopener">配套中文讲义</a><br>例题参数均为教学设定；本页运行简化计算，未复现工程级基准。</div><div class="footer-actions"><button id="export-results">导出本页计算</button><button id="print-page">打印本页</button></div></footer>
+<noscript><p style="padding:24px">请启用浏览器JavaScript运行交互计算；仍可阅读仓库中的中文讲义。</p></noscript>
+<script id="moc-engine">
+/* The same numerical functions are exercised directly by tests/teaching.test.cjs. */
+'use strict';
+const MOC = (() => {
+  const finiteNonnegative = (v, name) => {
+    if (!Number.isFinite(v) || v < 0) throw new RangeError(name + ' must be finite and nonnegative');
+  };
+  function segment(input, sigma, source, length) {
+    [input,sigma,source,length].forEach((v,i)=>finiteNonnegative(v,['input','sigma','source','length'][i]));
+    const tau=sigma*length;
+    let E,B;
+    if(tau<1e-4){
+      E=1+tau*(-1/2+tau*(1/6+tau*(-1/24+tau*(1/120-tau/720))));
+      B=1/2+tau*(-1/6+tau*(1/24+tau*(-1/120+tau*(1/720-tau/5040))));
+    } else {
+      E=-Math.expm1(-tau)/tau;
+      B=(1-E)/tau;
+    }
+    const incoming=input*Math.exp(-tau), born=source*length*E;
+    return {out:incoming+born,avg:input*E+source*length*B,tau,incoming,born};
+  }
+  function layers(input, list, angleDegrees=0){
+    if(!Number.isFinite(angleDegrees)||angleDegrees<0||angleDegrees>=90)throw new RangeError('angle must be between 0 and 90');
+    const mu=Math.cos(angleDegrees*Math.PI/180);
+    let psi=input, x=0;
+    return list.map(layer=>{
+      const length=layer.thickness/mu,result=segment(psi,layer.sigma,layer.source,length);
+      const row={...layer,...result,input:psi,length,x0:x,x1:x+layer.thickness};
+      psi=result.out;x=row.x1;return row;
+    });
+  }
+  function tracks(count, angleDegrees, radius){
+    if(!Number.isInteger(count)||count<1||count>501)throw new RangeError('invalid track count');
+    if(!Number.isFinite(angleDegrees))throw new RangeError('invalid angle');
+    if(!Number.isFinite(radius)||radius<=0||radius>=1)throw new RangeError('radius must be between 0 and 1');
+    const angle=angleDegrees*Math.PI/180,u=[Math.cos(angle),Math.sin(angle)],n=[-u[1],u[0]];
+    const extent=Math.abs(n[0])+Math.abs(n[1]),width=2*extent/count;
+    const list=[];
+    for(let k=0;k<count;k++){
+      const offset=-extent+(k+.5)*width,p=n.map(v=>offset*v);
+      let lo=-Infinity,hi=Infinity;
+      for(let j=0;j<2;j++){
+        if(Math.abs(u[j])<1e-12){if(Math.abs(p[j])>1){lo=1;hi=0;}}
+        else{const a=(-1-p[j])/u[j],b=(1-p[j])/u[j];lo=Math.max(lo,Math.min(a,b));hi=Math.min(hi,Math.max(a,b));}
+      }
+      if(hi<lo)continue;
+      const at=s=>[p[0]+u[0]*s,p[1]+u[1]*s];
+      const cuts=[lo,hi];
+      if(Math.abs(offset)<radius){
+        const root=Math.sqrt(radius*radius-offset*offset);
+        if(-root>lo&&-root<hi)cuts.push(-root);
+        if(root>lo&&root<hi)cuts.push(root);
+      }
+      cuts.sort((a,b)=>a-b);
+      const segments=[];
+      for(let j=0;j<cuts.length-1;j++){
+        const a=cuts[j],b=cuts[j+1],mid=(a+b)/2;
+        const fuel=offset*offset+mid*mid<radius*radius;
+        segments.push({material:fuel?'燃料':'慢化剂',fuel,length:b-a,start:at(a),end:at(b)});
+      }
+      list.push({offset,start:at(lo),end:at(hi),segments,fuelLength:segments.filter(s=>s.fuel).reduce((sum,s)=>sum+s.length,0)});
+    }
+    return {list,width,trueArea:Math.PI*radius*radius,estimatedArea:list.reduce((s,t)=>s+t.fuelLength*width,0),u};
+  }
+  function slabStep(old,options){
+    const {cells,length,sigma,ratio,source,mu}=options;
+    if(!Number.isInteger(cells)||cells<1||cells>300||old.length!==cells)throw new RangeError('invalid cells');
+    if(!(length>0&&sigma>0&&mu>0&&mu<=1&&ratio>=0&&ratio<1))throw new RangeError('invalid slab parameters');
+    [length,sigma,ratio,source,mu,...old].forEach((v,i)=>finiteNonnegative(v,'slab parameter '+i));
+    const dx=length/cells,travel=dx/mu,scatter=sigma*ratio,absorption=sigma-scatter;
+    // f = 2*pi*psi; phi = f_plus + f_minus; q_f = (Sigma_s*phi + S)/2.
+    const q=old.map(phi=>(scatter*phi+source)/2),plus=[],minus=[];
+    let psi=0;
+    for(let i=0;i<cells;i++){const r=segment(psi,sigma,q[i],travel);plus[i]=r.avg;psi=r.out;}
+    const rightOut=psi;psi=0;
+    for(let i=cells-1;i>=0;i--){const r=segment(psi,sigma,q[i],travel);minus[i]=r.avg;psi=r.out;}
+    const leftOut=psi,phi=plus.map((v,i)=>v+minus[i]);
+    const integral=phi.reduce((s,v)=>s+v,0)*dx;
+    const produced=source*length,absorbed=absorption*integral,leaked=mu*(rightOut+leftOut);
+    const scale=Math.max(...phi,1e-30),residual=Math.max(...phi.map((v,i)=>Math.abs(v-old[i])))/scale;
+    return {phi,old:old.slice(),plus,minus,rightOut,leftOut,average:integral/length,produced,absorbed,leaked,residual,balance:(produced-absorbed-leaked)/(produced||1),dx};
+  }
+  function solveSlab(options,tolerance=1e-10,maxIterations=2000){
+    let old=Array(options.cells).fill(0),result;
+    const history=[];
+    for(let iteration=1;iteration<=maxIterations;iteration++){
+      result=slabStep(old,options);history.push({iteration,...result});old=result.phi;
+      if(result.residual<tolerance)return {...result,iterations:iteration,converged:true,history};
+    }
+    return {...result,iterations:maxIterations,converged:false,history};
+  }
+  return {segment,layers,tracks,slabStep,solveSlab};
+})();
+</script>
+<script id="moc-app">
+'use strict';
+const $=id=>document.getElementById(id);
+const fmt=(v,n=4)=>Number.isFinite(v)?v.toFixed(n):'—';
+let currentTab=1,layerFocus=-1,iterFrames=[],iterCurrent=null,iterRunning=false,iterAnimation=0;
+const palette={blue:'#2765b0',orange:'#be6434',ink:'#172c3b',teal:'#167369',gray:'#a7b6c0'};
+const inputNumber=id=>Number($(id).value);
+const controls=['single-in','single-sigma','single-length','single-source','layer-in','layer-angle','track-count','track-angle','track-radius','track-selected','iter-length','iter-sigma','iter-ratio','iter-source','iter-cells'];
+function controlOutput(id){const v=inputNumber(id);$(id+'-value').textContent=id.includes('angle')?v+'°':id.includes('count')||id.includes('cells')||id.includes('selected')?v:fmt(v,2);}
+function svgChart(id,series,{xmax,xlabel='距离 / cm',ylabel='通量',ymax=null,ymin=0,height=320,bands=[],lines=[]}={}){
+  const width=Math.max(300,Math.round($(id).getBoundingClientRect().width)||710);
+  height=Math.max(235,Math.min(380,Math.round(width*height/710)));
+  $(id).setAttribute('viewBox',`0 0 ${width} ${height}`);$(id).style.aspectRatio=width+'/'+height;
+  const left=54,right=18,top=27,bottom=54;
+  const plotW=width-left-right,plotH=height-top-bottom;
+  if(ymax===null){const peak=Math.max(0,...series.flatMap(s=>s.points.map(p=>p[1])));ymax=peak>0?peak*1.12:1;}
+  if(ymax<=ymin)ymax=ymin+1;
+  const X=x=>left+x/Math.max(xmax,1e-12)*plotW,Y=y=>top+(ymax-y)/(ymax-ymin)*plotH;
+  let markup='';
+  bands.forEach(b=>{markup+=`<rect x="${X(b.from)}" y="${top}" width="${X(b.to)-X(b.from)}" height="${plotH}" fill="${b.color}" opacity=".34"/>`;});
+  for(let i=0;i<=4;i++){
+    const x=xmax*i/4,y=ymin+(ymax-ymin)*i/4;
+    markup+=`<line x1="${left}" y1="${Y(y)}" x2="${width-right}" y2="${Y(y)}" stroke="#e6eaeb"/><text x="${left-9}" y="${Y(y)+4}" text-anchor="end" fill="#61717a" font-size="12">${fmt(y,Math.abs(y)>100?0:2)}</text><text x="${X(x)}" y="${height-bottom+23}" text-anchor="middle" fill="#61717a" font-size="12">${fmt(x,1)}</text>`;
+  }
+  markup+=`<line x1="${left}" y1="${height-bottom}" x2="${width-right}" y2="${height-bottom}" stroke="#a3afb4"/><text x="${left+plotW/2}" y="${height-8}" text-anchor="middle" fill="#61717a" font-size="13">${xlabel}</text><text x="${left}" y="14" fill="#61717a" font-size="12">${ylabel}</text>`;
+  lines.forEach(line=>{markup+=`<line x1="${left}" y1="${Y(line.y)}" x2="${width-right}" y2="${Y(line.y)}" stroke="${line.color}" stroke-dasharray="5 5"/><text x="${width-right}" y="${Y(line.y)-5}" text-anchor="end" fill="${line.color}" font-size="11">${line.label}</text>`;});
+  series.forEach(s=>{if(!s.points.length)return;const points=s.points.map(p=>`${X(p[0])},${Y(p[1])}`).join(' ');markup+=`<polyline points="${points}" fill="none" stroke="${s.color}" stroke-width="${s.width||3}" stroke-linejoin="round" stroke-linecap="round" ${s.dash?'stroke-dasharray="6 5"':''}/>`;if(s.points.length===1)markup+=`<circle cx="${X(s.points[0][0])}" cy="${Y(s.points[0][1])}" r="4" fill="${s.color}"/>`;});
+  $(id).innerHTML=markup;
+}
+function singleOptions(){return{input:inputNumber('single-in'),sigma:inputNumber('single-sigma'),length:inputNumber('single-length'),source:inputNumber('single-source')};}
+function singleData(){const o=singleOptions();return{options:o,result:MOC.segment(o.input,o.sigma,o.source,o.length),profile:Array.from({length:101},(_,i)=>{const x=o.length*i/100;return{x,...MOC.segment(o.input,o.sigma,o.source,x)};})};}
+function renderSingle(){
+  ['single-in','single-sigma','single-length','single-source'].forEach(controlOutput);
+  const {options:o,result:r,profile:p}=singleData();
+  $('single-out').textContent=fmt(r.out);$('single-avg').textContent=fmt(r.avg);$('single-tau').textContent=fmt(r.tau,2);
+  svgChart('single-chart',[{color:palette.blue,width:2,points:p.map(v=>[v.x,v.incoming])},{color:palette.orange,width:2,points:p.map(v=>[v.x,v.born])},{color:palette.ink,points:p.map(v=>[v.x,v.out])}],{xmax:o.length,xlabel:'真实飞行距离 s / cm',ylabel:'角通量 ψ'});
+  $('single-equation').innerHTML=o.sigma===0?`ψ<sub>out</sub> = ${fmt(o.input,2)} + ${fmt(o.source,2)} × ${fmt(o.length,2)} = <strong>${fmt(r.out)}</strong>`:`ψ<sub>out</sub> = ${fmt(o.input,2)} × e<sup>−${fmt(r.tau,2)}</sup> + (${fmt(o.source,2)} / ${fmt(o.sigma,2)}) × (1 − e<sup>−${fmt(r.tau,2)}</sup>) = <strong>${fmt(r.out)}</strong>`;
+  $('single-split').textContent=`出口的入口贡献 ${fmt(r.incoming)} + 源贡献 ${fmt(r.born)} = ${fmt(r.out)}。平均值是曲线面积除以段长，不是两端值的简单平均。`;
+  let text=o.sigma===0?'总截面为0时没有指数衰减；源使角通量沿距离线性增长。':o.source===0?`只有入口贡献。走完之后留下 ${(Math.exp(-r.tau)*100).toFixed(1)}%，光学厚度越大，留下的比例越低。`:Math.abs(o.input-o.source/o.sigma)<1e-10?'入口恰好等于 q/Σt：源补充与移出相平衡，角通量沿段保持不变。':o.input<o.source/o.sigma?'入口低于 q/Σt，源补充占优势，总通量向上增长。':'入口高于 q/Σt，总通量向下变化，但源持续补充，衰减比无源时更慢。';
+  $('single-insight').textContent=text;
+}
+const layerNames=['慢化剂 A','燃料','慢化剂 B'];
+const layerDefaults=[{thickness:1,sigma:.2,source:0},{thickness:1,sigma:1,source:2},{thickness:1,sigma:.2,source:0}];
+function initLayerInputs(){
+  $('layer-inputs').innerHTML=layerDefaults.map((p,i)=>`<tr><td>${i+1}</td>${['thickness','sigma','source'].map(k=>`<td><input type="number" id="layer-${i}-${k}" min="${k==='thickness'?'.1':'0'}" max="${k==='thickness'?'5':k==='sigma'?'3':'6'}" step=".1" value="${p[k]}" aria-label="${layerNames[i]}的${k==='thickness'?'层厚':k==='sigma'?'总截面':'源'}"></td>`).join('')}</tr>`).join('');
+  $('layer-inputs').querySelectorAll('input').forEach(input=>input.addEventListener('change',()=>{
+    const v=Number(input.value),min=Number(input.min),max=Number(input.max);
+    input.value=Number.isFinite(v)?Math.min(max,Math.max(min,v)):min;
+    layerFocus=-1;renderLayers();
+  }));
+}
+function layerData(){const options={input:inputNumber('layer-in'),angle:inputNumber('layer-angle'),layers:layerDefaults.map((_,i)=>({name:layerNames[i],...Object.fromEntries(['thickness','sigma','source'].map(k=>[k,inputNumber(`layer-${i}-${k}`)]))}))};return{options,rows:MOC.layers(options.input,options.layers,options.angle)};}
+function renderLayers(){
+  ['layer-in','layer-angle'].forEach(controlOutput);
+  const {options:o,rows}=layerData(),depth=rows.at(-1).x1;
+  $('layer-out').textContent=fmt(rows.at(-1).out);$('layer-distance').textContent=fmt(rows.reduce((s,r)=>s+r.length,0),2);$('layer-tau').textContent=fmt(rows.reduce((s,r)=>s+r.tau,0),2);
+  const profile=[];rows.forEach(r=>{for(let j=0;j<=50;j++){const t=j/50;profile.push([r.x0+t*r.thickness,MOC.segment(r.input,r.sigma,r.source,t*r.length).out]);}});
+  svgChart('layer-chart',[{points:profile,color:palette.ink}],{xmax:depth,xlabel:'沿层法线的深度 x / cm',ylabel:'角通量 ψ',bands:rows.map((r,i)=>({from:r.x0,to:r.x1,color:i===1?'#efd9c7':'#dcebf5'}))});
+  $('layer-results').innerHTML=rows.map((r,i)=>`<tr class="${layerFocus===i?'active':''}"><td>${layerNames[i]}</td><td>${fmt(r.length,3)}</td><td>${fmt(r.input)}</td><td>${fmt(r.out)}</td><td>${fmt(r.avg)}</td></tr>`).join('');
+  const diagramWidth=Math.max(300,Math.round($('layer-diagram').getBoundingClientRect().width)||710),x=v=>15+v/depth*(diagramWidth-30);
+  $('layer-diagram').setAttribute('viewBox',`0 0 ${diagramWidth} 105`);
+  $('layer-diagram').innerHTML=rows.map((r,i)=>`<rect x="${x(r.x0)}" y="13" width="${x(r.x1)-x(r.x0)}" height="55" rx="3" fill="${i===1?'#efd9c7':'#dcebf5'}" stroke="${layerFocus===i?palette.teal:'#fff'}" stroke-width="${layerFocus===i?3:2}"/><text x="${x((r.x0+r.x1)/2)}" y="34" text-anchor="middle" font-size="13" fill="#172c3b">${layerNames[i]}</text>`).join('')+`<path d="M20 53 H${diagramWidth-20} l-8 -5 M${diagramWidth-20} 53 l-8 5" stroke="#172c3b" fill="none" stroke-width="2"/><text x="${diagramWidth/2}" y="92" text-anchor="middle" fill="#61717a" font-size="11">投影顺序示意 · α = ${o.angle}° · L = 层厚 / cos α</text>`;
+  if(layerFocus<0)$('layer-insight').textContent='点“看第1段”，逐段检查入口、源贡献与出口。图中的全程结果已按这三个段真实计算。';
+  else{const r=rows[layerFocus];$('layer-insight').innerHTML=`<b>第 ${layerFocus+1} 段 · ${layerNames[layerFocus]}</b>：入口 ${fmt(r.input)}，留下 ${fmt(r.incoming)}，段内源补充 ${fmt(r.born)}，出口 ${fmt(r.out)}。${layerFocus<2?'这个出口直接成为下一段入口。':'三个段计算完成。'}`;}
+  $('layer-next').textContent=layerFocus<2?`看第 ${layerFocus+2} 段`:'重新看第 1 段';
+}
+function trackData(){return{count:inputNumber('track-count'),angle:inputNumber('track-angle'),radius:inputNumber('track-radius'),selected:inputNumber('track-selected')-1};}
+function renderTracks(){
+  const o=trackData(),g=MOC.tracks(o.count,o.angle,o.radius);$('track-selected').max=g.list.length;
+  if(o.selected>=g.list.length)$('track-selected').value=Math.floor(g.list.length/2)+1;
+  const selected=inputNumber('track-selected')-1;
+  ['track-count','track-angle','track-radius','track-selected'].forEach(controlOutput);
+  $('track-area').textContent=fmt(g.trueArea);$('track-estimate').textContent=fmt(g.estimatedArea);$('track-error').textContent=(g.estimatedArea>=g.trueArea?'+':'')+fmt(100*(g.estimatedArea/g.trueArea-1),2)+'%';
+  const X=v=>355+v*155,Y=v=>190-v*155,point=p=>`${X(p[0])},${Y(p[1])}`;
+  $('track-geometry').setAttribute('viewBox','175 0 365 400');
+  let svg=`<rect x="200" y="35" width="310" height="310" rx="2" fill="#eaf2f7" stroke="#b7c7d1"/><circle cx="355" cy="190" r="${155*o.radius}" fill="#ead8c5" stroke="#cfb493"/><text x="519" y="351" font-size="12" fill="#61717a">x</text><text x="203" y="25" font-size="12" fill="#61717a">y</text><text x="355" y="385" text-anchor="middle" font-size="12" fill="#61717a">垂直于轨迹的带宽 d = ${fmt(g.width,4)} cm</text>`;
+  g.list.forEach((t,i)=>{if(i===selected)return;svg+=`<polyline points="${point(t.start)} ${point(t.end)}" stroke="#2765b0" stroke-width="1.1" opacity=".38"/>`;t.segments.filter(s=>s.fuel).forEach(s=>{svg+=`<polyline points="${point(s.start)} ${point(s.end)}" stroke="#172c3b" stroke-width="2" opacity=".65"/>`;});});
+  const t=g.list[selected];if(t){svg+=`<polyline points="${point(t.start)} ${point(t.end)}" stroke="#be6434" stroke-width="3.5"/>`;t.segments.filter(s=>s.fuel).forEach(s=>{svg+=`<polyline points="${point(s.start)} ${point(s.end)}" stroke="#172c3b" stroke-width="5"/>`;});svg+=`<circle cx="${X(t.start[0])}" cy="${Y(t.start[1])}" r="5" fill="#be6434"/>`;}
+  $('track-geometry').innerHTML=svg;
+  $('track-segments').innerHTML=t.segments.map(s=>`<tr><td>${s.material}</td><td>${fmt(s.length)}</td><td>(${s.start.map(v=>fmt(v,2)).join(', ')})</td><td>(${s.end.map(v=>fmt(v,2)).join(', ')})</td></tr>`).join('');
+  const hits=g.list.filter(t=>t.fuelLength>0).length;
+  $('track-insight').textContent=`${g.list.length} 条轨迹中，${hits} 条穿过燃料。选中线经过 ${t.segments.length} 段，燃料段共 ${fmt(t.fuelLength)} cm。面积近似把每条线的燃料段长乘 ${fmt(g.width)} cm 再相加。`;
+}
+function iterOptions(){return{cells:inputNumber('iter-cells'),length:inputNumber('iter-length'),sigma:inputNumber('iter-sigma'),ratio:inputNumber('iter-ratio'),source:inputNumber('iter-source'),mu:inputNumber('iter-mu')};}
+function stopIteration(){iterRunning=false;cancelAnimationFrame(iterAnimation);$('iter-run').textContent='运行到收敛';}
+function resetIteration(){stopIteration();iterFrames=[];iterCurrent=null;renderIteration();}
+function advanceIteration(){const o=iterOptions();const old=iterCurrent?iterCurrent.phi:Array(o.cells).fill(0);iterCurrent=MOC.slabStep(old,o);iterFrames.push({iteration:iterFrames.length+1,...iterCurrent});}
+function renderIteration(){
+  ['iter-length','iter-sigma','iter-ratio','iter-source','iter-cells'].forEach(controlOutput);
+  const o=iterOptions(),r=iterCurrent,converged=r&&r.residual<1e-8;
+  $('iter-count').textContent=iterFrames.length;$('iter-average').textContent=fmt(r?r.average:0);$('iter-residual').textContent=r?r.residual.toExponential(2):'—';
+  $('iter-status').textContent=converged?'达到停止条件':iterRunning?'计算中…':r?'仍可继续更新源':'从通量0开始';
+  $('iter-step').disabled=!!converged||iterRunning||iterFrames.length>=2000;
+  $('iter-produced').textContent=fmt(o.source*o.length);$('iter-absorbed').textContent=fmt(r?r.absorbed:0);$('iter-leaked').textContent=fmt(r?r.leaked:0);
+  $('iter-balance').innerHTML=`外源 − 吸收 − 泄漏，相对外源为 <strong>${r?r.balance.toExponential(2):'1.00e+0'}</strong>。${converged?'当前离散模型的平衡也应接近0。':'未收敛时，源仍由上一轮通量构造。'}`;
+  const phi=r?r.phi:Array(o.cells).fill(0),old=r?r.old:phi;
+  const stairs=a=>a.flatMap((v,i)=>[[o.length*i/o.cells,v],[o.length*(i+1)/o.cells,v]]);
+  svgChart('iter-flux-chart',[{color:palette.gray,width:2,dash:true,points:stairs(old)},{color:palette.blue,points:stairs(phi)}],{xmax:o.length,xlabel:'平板深度 x / cm',ylabel:'区域平均标量通量 φ',height:370});
+  const history=iterFrames.map(f=>[f.iteration,Math.log10(Math.max(f.residual,1e-9))]);
+  svgChart('iter-history-chart',[{color:palette.teal,points:history}],{xmax:Math.max(10,iterFrames.length),xlabel:'源迭代轮数',ylabel:'log₁₀(相对变化)',height:370,ymax:.5,ymin:-9.2,lines:[{y:-8,color:'#be6434',label:'停止阈值 10⁻⁸'}]});
+  $('iter-insight').textContent=!r?'从0开始只是第一次猜测。第一轮外源产生通量，下一轮散射把部分通量重新贡献给各个方向。':converged?`经过 ${iterFrames.length} 轮，当前模型达到停止条件。平均通量 ${fmt(r.average)}；继续增加空间或角度分辨率，结果仍可能变化。`:`第 ${iterFrames.length} 轮：平均通量 ${fmt(r.average)}，相邻轮相对变化 ${r.residual.toExponential(2)}。还需用这个新通量重新构造散射源。`;
+}
+function runIteration(){
+  if(iterRunning){stopIteration();renderIteration();return;}
+  if(iterCurrent&&iterCurrent.residual<1e-8)return;
+  iterRunning=true;$('iter-run').textContent='暂停计算';
+  function tick(){
+    if(!iterRunning)return;
+    for(let i=0;i<4;i++){
+      advanceIteration();
+      if(iterCurrent.residual<1e-8||iterFrames.length>=2000){stopIteration();break;}
+    }
+    renderIteration();
+    if(iterFrames.length>=2000&&iterCurrent.residual>=1e-8)$('iter-status').textContent='到达上限，尚未收敛';
+    if(iterRunning)iterAnimation=requestAnimationFrame(tick);
+  }
+  iterAnimation=requestAnimationFrame(tick);
+}
+function switchTab(n,focus=false){
+  if(n!==4)stopIteration();currentTab=n;
+  document.querySelectorAll('[data-tab]').forEach(b=>{const selected=Number(b.dataset.tab)===n;b.setAttribute('aria-selected',String(selected));b.tabIndex=selected?0:-1;if(selected&&focus)b.focus();});
+  for(let i=1;i<=4;i++)$('lesson-'+i).hidden=i!==n;
+  [renderSingle,renderLayers,renderTracks,renderIteration][n-1]();
+}
+document.querySelectorAll('[data-tab]').forEach(b=>{
+  b.addEventListener('click',()=>switchTab(Number(b.dataset.tab)));
+  b.addEventListener('keydown',e=>{const n=Number(b.dataset.tab);if(['ArrowLeft','ArrowRight','Home','End'].includes(e.key)){e.preventDefault();switchTab(e.key==='Home'?1:e.key==='End'?4:e.key==='ArrowRight'?n%4+1:(n+2)%4+1,true);}});
+});
+controls.forEach(id=>$(id).addEventListener('input',()=>{
+  if(id.startsWith('single'))renderSingle();
+  else if(id.startsWith('layer')){layerFocus=-1;renderLayers();}
+  else if(id.startsWith('track'))renderTracks();
+  else resetIteration();
+}));
+$('iter-mu').addEventListener('change',resetIteration);
+document.querySelectorAll('[data-single-preset]').forEach(b=>b.addEventListener('click',()=>{
+  const values={attenuation:[10,.5,2,0],source:[0,1,1,2],transparent:[3,0,2,2]}[b.dataset.singlePreset];
+  ['single-in','single-sigma','single-length','single-source'].forEach((id,i)=>$(id).value=values[i]);renderSingle();
+}));
+$('layer-next').addEventListener('click',()=>{layerFocus=(layerFocus+1)%3;renderLayers();});
+$('layer-reset').addEventListener('click',()=>{$('layer-in').value=10;$('layer-angle').value=0;initLayerInputs();layerFocus=-1;renderLayers();});
+$('track-reset').addEventListener('click',()=>{$('track-count').value=13;$('track-angle').value=30;$('track-radius').value=.55;$('track-selected').value=7;renderTracks();});
+$('iter-step').addEventListener('click',()=>{stopIteration();if(!iterCurrent||iterCurrent.residual>=1e-8){advanceIteration();renderIteration();}});
+$('iter-run').addEventListener('click',runIteration);$('iter-reset').addEventListener('click',resetIteration);
+function setIterPreset(cells,mu,length){$('iter-cells').value=cells;$('iter-mu').value=mu;$('iter-length').value=length;$('iter-sigma').value=1;$('iter-ratio').value=.5;$('iter-source').value=2;resetIteration();}
+$('iter-preset').addEventListener('click',()=>setIterPreset(1,'1',1));$('iter-profile').addEventListener('click',()=>setIterPreset(20,'0.5773502691896258',4));
+$('print-page').addEventListener('click',()=>window.print());
+$('export-results').addEventListener('click',()=>{
+  let rows=[];
+  if(currentTab===1){const d=singleData();rows=[['实验','单段传播'],['入口ψ',d.options.input],['Σt / cm^-1',d.options.sigma],['q / 通量 cm^-1',d.options.source],['L / cm',d.options.length],['段平均ψ',d.result.avg],[],['s / cm','入口贡献','源贡献','总角通量'],...d.profile.map(p=>[p.x,p.incoming,p.born,p.out])];}
+  if(currentTab===2){const d=layerData();rows=[['实验','分层传播'],['起点ψ',d.options.input],['夹角α / degree',d.options.angle],[],['材料','层厚/cm','实际段长/cm','Σt','q','入口ψ','出口ψ','段平均ψ'],...d.rows.map(r=>[r.name,r.thickness,r.length,r.sigma,r.source,r.input,r.out,r.avg])];}
+  if(currentTab===3){const o=trackData(),g=MOC.tracks(o.count,o.angle,o.radius);rows=[['实验','二维几何覆盖'],['条数',o.count],['方位角/degree',o.angle],['燃料半径/cm',o.radius],['带宽/cm',g.width],['真实燃料面积/cm^2',g.trueArea],['估算燃料面积/cm^2',g.estimatedArea],[],['轨迹','段','材料','段长/cm','进入x','进入y','离开x','离开y'],...g.list.flatMap((t,i)=>t.segments.map((s,j)=>[i+1,j+1,s.material,s.length,...s.start,...s.end]))];}
+  if(currentTab===4){const o=iterOptions();rows=[['实验','单群两方向固定源迭代'],...Object.entries(o),[],['轮数','平均标量通量','相邻轮相对变化','外源','吸收','泄漏','相对平衡差'],...iterFrames.map(r=>[r.iteration,r.average,r.residual,r.produced,r.absorbed,r.leaked,r.balance]),[],['源区','中心x/cm','当前φ'],...(iterCurrent?iterCurrent.phi.map((v,i)=>[i+1,(i+.5)*o.length/o.cells,v]):[])];}
+  const csv='\ufeff'+rows.map(row=>row.map(v=>'"'+String(v).replaceAll('"','""')+'"').join(',')).join('\r\n');
+  const url=URL.createObjectURL(new Blob([csv],{type:'text/csv;charset=utf-8'})),a=document.createElement('a');a.href=url;a.download=`MOC-教学计算-实验${currentTab}.csv`;a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);
+});
+initLayerInputs();renderSingle();renderLayers();renderTracks();renderIteration();
+let resizeFrame=0;window.addEventListener('resize',()=>{cancelAnimationFrame(resizeFrame);resizeFrame=requestAnimationFrame(()=>[renderSingle,renderLayers,renderTracks,renderIteration][currentTab-1]());});
+</script>
+</body>
+</html>

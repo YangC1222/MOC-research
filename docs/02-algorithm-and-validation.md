@@ -1,6 +1,6 @@
 # MOC 算法与验证：从单段积分到公开基准
 
-更新：2026-10-10。这是实践准备文档，提供教学算法和验证设计；本仓库尚未实现或运行 MOC 求解器。先阅读[基础调研](01-moc-survey.md)。方法背景见 [P02](../references/literature.md#p02)、[R01](https://mit-crpg.github.io/OpenMOC/methods/index.html) 与 [MPACT 4.4 手册](../papers/pdf/R03_MPACT_2023_Theory_Manual_4.4.pdf)。
+更新：2026-10-10。这是实践准备文档，提供教学算法和验证设计。本仓库现有[单段、几何及单群两方向平板演示](../demo/index.html)，尚未实现工程级MOC或复现公开基准。初学先读[手算教学](03-moc-tutorial.md)与[基础调研](01-moc-survey.md)。方法背景见 [P02](../references/literature.md#p02)、[R01](https://mit-crpg.github.io/OpenMOC/methods/index.html) 与 [MPACT 4.4 手册](../papers/pdf/R03_MPACT_2023_Theory_Manual_4.4.pdf)。
 
 ## 1. 先限定最小模型
 
@@ -167,4 +167,4 @@ $$
 
 第一阶段交付单段推导、权重约定、算法流程图和误差清单。第二阶段再交付可复现输入、软件版本、参考解、收敛曲线与结果表。第三阶段才讨论线性源、CMFD、三维追踪或并行改进。
 
-当前仓库完成了资料组织和第一阶段的理论准备，没有把上述验证计划写成已完成的实验。后续阅读笔记可按[记录模板](research-questions.md)填写。
+当前仓库完成资料组织、理论准备和[部分简化教学例题的计算验证](../tests/README.md)，没有把完整验证计划写成已完成的工程实验。后续阅读笔记可按[记录模板](research-questions.md)填写。
